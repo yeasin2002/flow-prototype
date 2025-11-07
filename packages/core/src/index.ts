@@ -1,5 +1,5 @@
 // Build system
-export * from "./build";
+export * from "./builds";
 
 // Runtime
 export * from "./runtime";
@@ -8,6 +8,6 @@ export * from "./runtime";
 export * from "./types";
 
 // Main exports
-export { build, dev } from "./build";
-export { defineConfig } from "./build/vinxi";
+export { build, dev } from "./builds";
+export { defineConfig } from "./builds/vinxi";
 
