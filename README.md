@@ -1,61 +1,65 @@
-# Building a Full-Stack React Framework
+# ReactFlow - Full-Stack React Meta-Framework
 
-Welcome to the comprehensive guide for building a modern full-stack React framework using Vite, Nitro, and Vinxi - similar to TanStack Start, Next.js, and Nuxt.
+A modern full-stack React framework built with Vite, Nitro, and Vinxi - inspired by Next.js, TanStack Start, and Nuxt.
 
 ---
 
 ## 🎯 Project Goal
 
-Build a production-ready full-stack React framework with:
+Build a production-ready full-stack React meta-framework with:
 
-- ✅ **Server-Side Rendering (SSR)** - Like Next.js App Router
+- ✅ **Server-Side Rendering (SSR)** - React 19 with streaming
 - ✅ **Hybrid Rendering** - Client and Server Components
-- ✅ **File-Based Routing** - Automatic route generation
+- ✅ **File-Based Routing** - Automatic route generation for frontend and API
 - ✅ **Server Functions** - Type-safe RPC calls
 - ✅ **Streaming** - Progressive HTML delivery
 - ✅ **Image Optimization** - Automatic image processing
 - ✅ **Edge Ready** - Deploy anywhere (Vercel, Cloudflare, etc.)
 - ✅ **TypeScript First** - Full type safety
+- ✅ **CLI Tool** - Project scaffolding and development commands
 
 ---
 
-## 📚 Documentation Structure
+## 📚 Documentation
 
-### 🚀 Start Here
+This project has comprehensive documentation organized into three sections:
 
-0. **[00-Quick-Start.md](./00-Quick-Start.md)** - Build MVP in 30 minutes
-1. **[SUMMARY.md](./SUMMARY.md)** - Complete overview and learning path
-2. **[ROADMAP.md](./ROADMAP.md)** - 12-week development plan
+### 🏗️ [Framework Design](./docs/build-framework/)
 
-### Phase 1: Foundation
+Architecture and design documentation for understanding the framework:
 
-3. **[01-Architecture.md](./01-Architecture.md)** - System architecture and design decisions
-4. **[02-Tech-Stack.md](./02-Tech-Stack.md)** - Tools, packages, and why we chose them
-5. **[03-Project-Setup.md](./03-Project-Setup.md)** - Initial project structure (Coming Soon)
+- **[Quick Start](./docs/build-framework/00-Quick-Start.md)** - Build MVP in 30 minutes
+- **[Architecture](./docs/build-framework/01-Architecture.md)** - System design and decisions
+- **[Tech Stack](./docs/build-framework/02-Tech-Stack.md)** - Technology choices and rationale
+- **[Roadmap](./docs/build-framework/ROADMAP.md)** - 12-week development plan
+- **[Summary](./docs/build-framework/SUMMARY.md)** - Complete overview
 
-### Phase 2: Core Features
+### 📖 [Implementation Tutorial](./docs/tutorial/)
 
-4. **[04-Build-System.md](./04-Build-System.md)** - Vinxi setup and dual builds
-5. **[05-Routing.md](./05-Routing.md)** - File-based routing implementation
-6. **[06-SSR-Implementation.md](./06-SSR-Implementation.md)** - Server-side rendering
+Step-by-step guide to building the framework from scratch (10 chapters):
 
-### Phase 3: Advanced Features
+1. **[Turborepo Setup](./docs/tutorial/01-Turborepo-Setup.md)** - Monorepo initialization
+2. **[Package Structure](./docs/tutorial/02-Package-Structure.md)** - Package scaffolding
+3. **[Core Package](./docs/tutorial/03-Core-Package.md)** - Framework core implementation
+4. **[Vinxi Configuration](./docs/tutorial/04-Vinxi-Configuration.md)** - Multi-router architecture
+5. **[File-Based Routing](./docs/tutorial/05-File-Based-Routing.md)** - Route scanner and generation
+6. **[Server Functions](./docs/tutorial/06-Server-Functions.md)** - Type-safe RPC system
+7. **[CLI Tool](./docs/tutorial/07-CLI-Tool.md)** - Command-line interface
+8. **[Example App](./docs/tutorial/08-Example-App.md)** - Complete blog application
+9. **[Deployment](./docs/tutorial/09-Deployment.md)** - Production deployment strategies
+10. **[Advanced Features](./docs/tutorial/10-Advanced-Features.md)** - Middleware and optimization
 
-7. **[07-Client-Server-Components.md](./07-Client-Server-Components.md)** - Hybrid rendering
-8. **[08-Server-Functions.md](./08-Server-Functions.md)** - RPC and data fetching
-9. **[09-Streaming.md](./09-Streaming.md)** - Progressive rendering
+### 🚀 [Usage Guide](./docs/framework-example/)
 
-### Phase 4: Optimization
+End-user documentation for developers using ReactFlow:
 
-10. **[10-Image-Optimization.md](./10-Image-Optimization.md)** - Automatic image processing
-11. **[11-Code-Splitting.md](./11-Code-Splitting.md)** - Bundle optimization
-12. **[12-Caching.md](./12-Caching.md)** - Performance optimization
-
-### Phase 5: Production
-
-13. **[13-Deployment.md](./13-Deployment.md)** - Deploy to various platforms
-14. **[14-Testing.md](./14-Testing.md)** - Testing strategies
-15. **[15-CLI-Tool.md](./15-CLI-Tool.md)** - Create framework CLI
+- **[Installation](./docs/framework-example/01-installation.md)** - Setup and installation
+- **[Configuration](./docs/framework-example/02-configuration.md)** - Framework configuration
+- **[Routing](./docs/framework-example/04-routing.md)** - File-based routing system
+- **[Server Functions](./docs/framework-example/05-server-functions.md)** - Type-safe backend calls
+- **[API Reference](./docs/framework-example/api-reference.md)** - Complete API documentation
+- **[Quick Start Guide](./docs/framework-example/quick-start-guide.md)** - Get started quickly
+- **[Examples](./docs/framework-example/examples/)** - Real-world examples (blog, todo app)
 
 ---
 
