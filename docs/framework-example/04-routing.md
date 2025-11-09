@@ -1,6 +1,6 @@
 # Routing
 
-ReactFlow uses file-based routing for both frontend and backend routes.
+@flow uses file-based routing for both frontend and backend routes.
 
 ---
 
@@ -308,7 +308,7 @@ export default function About() {
 ### Data Loading
 
 ```typescript
-import { useServerQuery } from '@reactflow/server';
+import { useServerQuery } from '@@flow/server';
 import { getUser } from '../../server/users';
 
 export default function UserProfile() {
@@ -409,7 +409,7 @@ export default function NotFound() {
 ### Prefetch on Hover
 
 ```typescript
-import { Link } from '@reactflow/link';
+import { Link } from '@@flow/link';
 
 export function Navigation() {
   return (
@@ -428,7 +428,7 @@ export function Navigation() {
 ### Manual Prefetch
 
 ```typescript
-import { prefetch } from '@reactflow/router';
+import { prefetch } from '@@flow/router';
 
 export function ProductCard({ product }) {
   const handleMouseEnter = () => {
@@ -461,7 +461,7 @@ app/server/
 **app/server/users.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 
 export const getUsers = createServerFn(async (ctx) => {
   const users = await db.users.findAll();
@@ -480,7 +480,7 @@ export const getUserById = createServerFn(async (ctx, id: number) => {
 
 ### Custom Route Matching
 
-**reactflow.config.ts:**
+**@flow.config.ts:**
 
 ```typescript
 export default defineConfig({

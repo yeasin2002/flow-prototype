@@ -1,7 +1,7 @@
 import type { NitroConfig } from "nitropack";
 import type { UserConfig as ViteConfig } from "vite";
 
-export interface ReactFlowConfig {
+export interface @flowConfig {
   /**
    * Root directory of the application
    * @default process.cwd()
@@ -55,7 +55,7 @@ export interface ReactFlowConfig {
   ssr?: boolean;
 }
 
-export interface ResolvedConfig extends Required<ReactFlowConfig> {
+export interface ResolvedConfig extends Required<@flowConfig> {
   // Resolved absolute paths
   rootDir: string;
   outDir: string;

@@ -6,7 +6,7 @@ Get started building your React framework in 30 minutes.
 
 ## 🎯 What We're Building
 
-A full-stack React framework called **ReactFlow** with:
+A full-stack React framework called **@flow** with:
 
 - ✅ Server-Side Rendering (SSR)
 - ✅ File-based routing
@@ -31,8 +31,8 @@ npm --version   # Should be >= 10.x
 ### Step 1: Create Project (2 min)
 
 ```bash
-mkdir reactflow-framework
-cd reactflow-framework
+mkdir @flow-framework
+cd @flow-framework
 npm init -y
 ```
 
@@ -126,7 +126,7 @@ export default eventHandler((event) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>ReactFlow</title>
+        <title>@flow</title>
       </head>
       <body>
         <div id="root">${html}</div>
@@ -149,7 +149,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Welcome to ReactFlow!</h1>
+      <h1>Welcome to @flow!</h1>
       <button onClick={() => setCount(count + 1)}>
         Count: {count}
       </button>

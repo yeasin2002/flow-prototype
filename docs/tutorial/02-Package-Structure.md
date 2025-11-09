@@ -1,6 +1,6 @@
 # Tutorial 02: Package Structure
 
-Set up the structure for all packages in the ReactFlow monorepo.
+Set up the structure for all packages in the @flow monorepo.
 
 ---
 
@@ -27,13 +27,13 @@ Individual package structures with:
 
 We'll create 7 packages:
 
-1. **@reactflow/core** - Framework core
-2. **@reactflow/router** - Routing system
-3. **@reactflow/server** - Server utilities
-4. **@reactflow/image** - Image component
-5. **@reactflow/link** - Link component
-6. **@reactflow/cli** - CLI tool
-7. **create-reactflow** - Project scaffolder
+1. **@@flow/core** - Framework core
+2. **@@flow/router** - Routing system
+3. **@@flow/server** - Server utilities
+4. **@@flow/image** - Image component
+5. **@@flow/link** - Link component
+6. **@@flow/cli** - CLI tool
+7. **create-@flow** - Project scaffolder
 
 ---
 
@@ -53,9 +53,9 @@ touch src/index.ts
 
 ```json
 {
-  "name": "@reactflow/core",
+  "name": "@@flow/core",
   "version": "0.0.1",
-  "description": "ReactFlow framework core",
+  "description": "@flow framework core",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -88,8 +88,8 @@ touch src/index.ts
     "h3": "^1.11.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/node": "^20.12.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
@@ -103,7 +103,7 @@ touch src/index.ts
 
 ```json
 {
-  "extends": "@reactflow/typescript-config/base.json",
+  "extends": "@@flow/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -163,7 +163,7 @@ export function createRuntime() {
 **packages/core/src/types/index.ts:**
 
 ```typescript
-export interface ReactFlowConfig {
+export interface @flowConfig {
   root?: string;
   outDir?: string;
 }
@@ -187,9 +187,9 @@ touch src/index.ts
 
 ```json
 {
-  "name": "@reactflow/router",
+  "name": "@@flow/router",
   "version": "0.0.1",
-  "description": "File-based routing for ReactFlow",
+  "description": "File-based routing for @flow",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -211,8 +211,8 @@ touch src/index.ts
     "pathe": "^1.1.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/node": "^20.12.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
@@ -226,7 +226,7 @@ touch src/index.ts
 
 ```json
 {
-  "extends": "@reactflow/typescript-config/base.json",
+  "extends": "@@flow/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -309,9 +309,9 @@ touch src/index.ts
 
 ```json
 {
-  "name": "@reactflow/server",
+  "name": "@@flow/server",
   "version": "0.0.1",
-  "description": "Server utilities for ReactFlow",
+  "description": "Server utilities for @flow",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -333,8 +333,8 @@ touch src/index.ts
     "ofetch": "^1.3.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/node": "^20.12.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
@@ -399,9 +399,9 @@ touch src/index.ts
 
 ```json
 {
-  "name": "@reactflow/image",
+  "name": "@@flow/image",
   "version": "0.0.1",
-  "description": "Image optimization for ReactFlow",
+  "description": "Image optimization for @flow",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -423,8 +423,8 @@ touch src/index.ts
     "sharp": "^0.33.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/react": "^19.0.0",
     "@types/node": "^20.12.0",
     "tsup": "^8.0.0",
@@ -442,7 +442,7 @@ touch src/index.ts
 
 ```json
 {
-  "extends": "@reactflow/typescript-config/react.json",
+  "extends": "@@flow/typescript-config/react.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -536,9 +536,9 @@ touch src/index.ts
 
 ```json
 {
-  "name": "@reactflow/link",
+  "name": "@@flow/link",
   "version": "0.0.1",
-  "description": "Smart Link component for ReactFlow",
+  "description": "Smart Link component for @flow",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -560,8 +560,8 @@ touch src/index.ts
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/react": "^19.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
@@ -608,12 +608,12 @@ touch src/index.ts
 
 ```json
 {
-  "name": "@reactflow/cli",
+  "name": "@@flow/cli",
   "version": "0.0.1",
-  "description": "CLI tool for ReactFlow",
+  "description": "CLI tool for @flow",
   "type": "module",
   "bin": {
-    "reactflow": "./dist/index.js"
+    "@flow": "./dist/index.js"
   },
   "files": ["dist", "templates"],
   "scripts": {
@@ -629,8 +629,8 @@ touch src/index.ts
     "ora": "^8.0.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/node": "^20.12.0",
     "@types/prompts": "^2.4.0",
     "tsup": "^8.0.0",
@@ -669,7 +669,7 @@ import { Command } from "commander";
 
 const program = new Command();
 
-program.name("reactflow").description("ReactFlow CLI").version("0.0.1");
+program.name("@flow").description("@flow CLI").version("0.0.1");
 
 program
   .command("dev")
@@ -690,28 +690,28 @@ program.parse();
 
 ---
 
-## 🚀 Step 7: Create ReactFlow Package
+## 🚀 Step 7: Create @flow Package
 
 ### Create Structure
 
 ```bash
-cd ../create-reactflow
+cd ../create-@flow
 mkdir -p src/{templates,utils}
 touch src/index.ts
 ```
 
 ### package.json
 
-**packages/create-reactflow/package.json:**
+**packages/create-@flow/package.json:**
 
 ```json
 {
-  "name": "create-reactflow",
+  "name": "create-@flow",
   "version": "0.0.1",
-  "description": "Create ReactFlow apps",
+  "description": "Create @flow apps",
   "type": "module",
   "bin": {
-    "create-reactflow": "./dist/index.js"
+    "create-@flow": "./dist/index.js"
   },
   "files": ["dist", "templates"],
   "scripts": {
@@ -724,7 +724,7 @@ touch src/index.ts
     "ora": "^8.0.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
     "@types/node": "^20.12.0",
     "@types/prompts": "^2.4.0",
     "tsup": "^8.0.0",
@@ -735,7 +735,7 @@ touch src/index.ts
 
 ### Initial Files
 
-**packages/create-reactflow/src/index.ts:**
+**packages/create-@flow/src/index.ts:**
 
 ```typescript
 #!/usr/bin/env node
@@ -743,13 +743,13 @@ import prompts from "prompts";
 import chalk from "chalk";
 
 async function main() {
-  console.log(chalk.blue("Create ReactFlow App\n"));
+  console.log(chalk.blue("Create @flow App\n"));
 
   const response = await prompts({
     type: "text",
     name: "name",
     message: "Project name:",
-    initial: "my-reactflow-app",
+    initial: "my-@flow-app",
   });
 
   console.log(chalk.green(`\nCreating ${response.name}...`));
@@ -781,15 +781,15 @@ pnpm build
 You should see:
 
 ```
-• Packages in scope: @reactflow/core, @reactflow/router, ...
+• Packages in scope: @@flow/core, @@flow/router, ...
 • Running build in 7 packages
-✓ @reactflow/core:build: finished
-✓ @reactflow/router:build: finished
-✓ @reactflow/server:build: finished
-✓ @reactflow/image:build: finished
-✓ @reactflow/link:build: finished
-✓ @reactflow/cli:build: finished
-✓ create-reactflow:build: finished
+✓ @@flow/core:build: finished
+✓ @@flow/router:build: finished
+✓ @@flow/server:build: finished
+✓ @@flow/image:build: finished
+✓ @@flow/link:build: finished
+✓ @@flow/cli:build: finished
+✓ create-@flow:build: finished
 ```
 
 ---
@@ -869,7 +869,7 @@ packages/
 │   ├── tsconfig.json
 │   └── tsup.config.ts
 │
-└── create-reactflow/
+└── create-@flow/
     ├── src/
     │   ├── templates/
     │   ├── utils/

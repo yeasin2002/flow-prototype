@@ -1,6 +1,6 @@
 # Example: Building a Blog
 
-Build a complete blog with ReactFlow.
+Build a complete blog with @flow.
 
 ---
 
@@ -34,10 +34,10 @@ export interface Post {
 let posts: Post[] = [
   {
     id: 1,
-    title: "Getting Started with ReactFlow",
+    title: "Getting Started with @flow",
     slug: "getting-started",
-    content: "# Getting Started\n\nReactFlow is amazing...",
-    excerpt: "Learn how to get started with ReactFlow",
+    content: "# Getting Started\n\n@flow is amazing...",
+    excerpt: "Learn how to get started with @flow",
     author: "John Doe",
     publishedAt: new Date("2024-01-01"),
     tags: ["tutorial", "beginner"],
@@ -70,7 +70,7 @@ export const db = {
 **app/server/blog.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 import { db } from "./db";
 import { marked } from "marked";
 
@@ -127,7 +127,7 @@ export const createPost = createServerFn(
 
 ```typescript
 import { Link } from 'react-router-dom';
-import { useServerQuery } from '@reactflow/server';
+import { useServerQuery } from '@@flow/server';
 import { getPosts } from '../../server/blog';
 
 export default function BlogIndex() {
@@ -221,7 +221,7 @@ export default function BlogIndex() {
 ```typescript
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { useServerQuery } from '@reactflow/server';
+import { useServerQuery } from '@@flow/server';
 import { getPostBySlug } from '../../server/blog';
 
 export default function BlogPost() {
@@ -308,7 +308,7 @@ export default function BlogPost() {
 ```typescript
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useServerFn } from '@reactflow/server';
+import { useServerFn } from '@@flow/server';
 import { createPost } from '../../server/blog';
 
 export default function NewPost() {

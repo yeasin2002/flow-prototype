@@ -1,6 +1,6 @@
 # Tutorial 01: Turborepo Setup
 
-Initialize a monorepo with Turborepo for building ReactFlow framework.
+Initialize a monorepo with Turborepo for building @flow framework.
 
 ---
 
@@ -31,8 +31,8 @@ npm install -g pnpm
 ## 🚀 Step 1: Create Project Directory
 
 ```bash
-mkdir reactflow
-cd reactflow
+mkdir @flow
+cd @flow
 ```
 
 ---
@@ -53,7 +53,7 @@ pnpm dlx create-turbo@latest
 This creates:
 
 ```
-reactflow/
+@flow/
 ├── apps/
 │   └── web/          # Example Next.js app (we'll remove this)
 ├── packages/
@@ -88,7 +88,7 @@ rm -rf packages/ui
 
 ```json
 {
-  "name": "reactflow",
+  "name": "@flow",
   "private": true,
   "version": "0.0.0",
   "description": "A modern full-stack React framework",
@@ -175,7 +175,7 @@ mkdir -p packages/link
 mkdir -p packages/router
 mkdir -p packages/server
 mkdir -p packages/cli
-mkdir -p packages/create-reactflow
+mkdir -p packages/create-@flow
 
 # Create app directories
 mkdir -p apps/example
@@ -243,7 +243,7 @@ mkdir -p tooling/prettier-config
 
 ```json
 {
-  "name": "@reactflow/typescript-config",
+  "name": "@@flow/typescript-config",
   "version": "0.0.0",
   "private": true,
   "files": ["base.json", "react.json"]
@@ -297,7 +297,7 @@ module.exports = {
 
 ```json
 {
-  "name": "@reactflow/eslint-config",
+  "name": "@@flow/eslint-config",
   "version": "0.0.0",
   "private": true,
   "main": "base.js",
@@ -334,7 +334,7 @@ module.exports = {
 
 ```json
 {
-  "name": "@reactflow/prettier-config",
+  "name": "@@flow/prettier-config",
   "version": "0.0.0",
   "private": true,
   "main": "index.js"
@@ -414,7 +414,7 @@ tree -L 2 -I node_modules
 # ├── packages/
 # │   ├── cli/
 # │   ├── core/
-# │   ├── create-reactflow/
+# │   ├── create-@flow/
 # │   ├── image/
 # │   ├── link/
 # │   ├── router/
@@ -437,7 +437,7 @@ tree -L 2 -I node_modules
 pnpm build
 
 # Output:
-# • Packages in scope: @reactflow/core, @reactflow/image, ...
+# • Packages in scope: @@flow/core, @@flow/image, ...
 # • Running build in 0 packages
 # • No tasks were executed as part of this run.
 ```
@@ -458,7 +458,7 @@ pnpm build
 ## 📁 Final Structure
 
 ```
-reactflow/
+@flow/
 ├── apps/
 │   ├── docs/                 # Documentation site (empty)
 │   └── example/              # Example app (empty)
@@ -466,7 +466,7 @@ reactflow/
 ├── packages/
 │   ├── cli/                  # CLI tool (empty)
 │   ├── core/                 # Core framework (empty)
-│   ├── create-reactflow/     # Project scaffolder (empty)
+│   ├── create-@flow/     # Project scaffolder (empty)
 │   ├── image/                # Image package (empty)
 │   ├── link/                 # Link package (empty)
 │   ├── router/               # Router package (empty)

@@ -8,10 +8,10 @@ Build a command-line interface for your React framework.
 
 A CLI tool with commands:
 
-- `reactflow dev` - Start development server
-- `reactflow build` - Build for production
-- `reactflow start` - Start production server
-- `reactflow create` - Create new project
+- `@flow dev` - Start development server
+- `@flow build` - Build for production
+- `@flow start` - Start production server
+- `@flow create` - Create new project
 
 ---
 
@@ -31,7 +31,7 @@ A CLI tool with commands:
 import { Command } from "commander";
 import ora from "ora";
 import chalk from "chalk";
-import { dev } from "@reactflow/core";
+import { dev } from "@@flow/core";
 
 export function createDevCommand() {
   return new Command("dev")
@@ -70,7 +70,7 @@ export function createDevCommand() {
 import { Command } from "commander";
 import ora from "ora";
 import chalk from "chalk";
-import { build } from "@reactflow/core";
+import { build } from "@@flow/core";
 
 export function createBuildCommand() {
   return new Command("build")
@@ -164,7 +164,7 @@ import { resolve } from "pathe";
 
 export function createCreateCommand() {
   return new Command("create")
-    .description("Create a new ReactFlow project")
+    .description("Create a new @flow project")
     .argument("[name]", "Project name")
     .action(async (name) => {
       let projectName = name;
@@ -174,7 +174,7 @@ export function createCreateCommand() {
           type: "text",
           name: "name",
           message: "Project name:",
-          initial: "my-reactflow-app",
+          initial: "my-@flow-app",
         });
         projectName = response.name;
       }
@@ -199,12 +199,12 @@ export function createCreateCommand() {
               version: "0.0.1",
               type: "module",
               scripts: {
-                dev: "reactflow dev",
-                build: "reactflow build",
-                start: "reactflow start",
+                dev: "@flow dev",
+                build: "@flow build",
+                start: "@flow start",
               },
               dependencies: {
-                "@reactflow/core": "latest",
+                "@@flow/core": "latest",
                 react: "^19.0.0",
                 "react-dom": "^19.0.0",
               },
@@ -216,8 +216,8 @@ export function createCreateCommand() {
 
         // Create config file
         await writeFile(
-          resolve(projectDir, "reactflow.config.ts"),
-          `import { defineConfig } from '@reactflow/core';
+          resolve(projectDir, "@flow.config.ts"),
+          `import { defineConfig } from '@@flow/core';
 
 export default defineConfig({
   port: 3000,
@@ -232,7 +232,7 @@ export default defineConfig({
           `export default function Home() {
   return (
     <div>
-      <h1>Welcome to ReactFlow!</h1>
+      <h1>Welcome to @flow!</h1>
       <p>Start building your app.</p>
     </div>
   );
@@ -276,8 +276,8 @@ const packageJson = JSON.parse(readFileSync(resolve(__dirname, "../package.json"
 const program = new Command();
 
 program
-  .name("reactflow")
-  .description("ReactFlow - A modern full-stack React framework")
+  .name("@flow")
+  .description("@flow - A modern full-stack React framework")
   .version(packageJson.version);
 
 // Add commands
@@ -298,12 +298,12 @@ program.parse();
 
 ```json
 {
-  "name": "@reactflow/cli",
+  "name": "@@flow/cli",
   "version": "0.0.1",
-  "description": "CLI tool for ReactFlow",
+  "description": "CLI tool for @flow",
   "type": "module",
   "bin": {
-    "reactflow": "./dist/index.js"
+    "@flow": "./dist/index.js"
   },
   "files": ["dist"],
   "scripts": {
@@ -313,7 +313,7 @@ program.parse();
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@reactflow/core": "workspace:*",
+    "@@flow/core": "workspace:*",
     "commander": "^12.0.0",
     "prompts": "^2.4.0",
     "chalk": "^5.3.0",
@@ -321,8 +321,8 @@ program.parse();
     "pathe": "^1.1.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/node": "^20.12.0",
     "@types/prompts": "^2.4.0",
     "tsup": "^8.0.0",
@@ -344,7 +344,7 @@ pnpm build
 pnpm link --global
 
 # Test CLI
-reactflow --help
+@flow --help
 ```
 
 ---
@@ -353,7 +353,7 @@ reactflow --help
 
 ```bash
 # Create new project
-reactflow create my-app
+@flow create my-app
 
 # Navigate to project
 cd my-app
@@ -362,13 +362,13 @@ cd my-app
 npm install
 
 # Start dev server
-reactflow dev
+@flow dev
 
 # Build for production
-reactflow build
+@flow build
 
 # Start production server
-reactflow start
+@flow start
 ```
 
 ---

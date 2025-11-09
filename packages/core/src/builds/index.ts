@@ -1,11 +1,11 @@
 import { resolve } from "pathe";
-import type { BuildContext, ReactFlowConfig, ResolvedConfig } from "../types";
+import type { BuildContext, @flowConfig, ResolvedConfig } from "../types";
 
 export * from "./nitro";
 export * from "./vinxi";
 export * from "./vite";
 
-export function resolveConfig(config: ReactFlowConfig = {}): ResolvedConfig {
+export function resolveConfig(config: @flowConfig = {}): ResolvedConfig {
   const root = config.root || process.cwd();
 
   return {
@@ -23,7 +23,7 @@ export function resolveConfig(config: ReactFlowConfig = {}): ResolvedConfig {
 }
 
 export function createBuildContext(
-  config: ReactFlowConfig,
+  config: @flowConfig,
   mode: "development" | "production" = "development",
 ): BuildContext {
   return {
@@ -32,10 +32,10 @@ export function createBuildContext(
   };
 }
 
-export async function build(config: ReactFlowConfig) {
+export async function build(config: @flowConfig) {
   const ctx = createBuildContext(config, "production");
 
-  console.log("Building ReactFlow app...");
+  console.log("Building @flow app...");
   console.log("Config:", ctx.config);
 
   // TODO: Implement actual build process
@@ -49,10 +49,10 @@ export async function build(config: ReactFlowConfig) {
   };
 }
 
-export async function dev(config: ReactFlowConfig) {
+export async function dev(config: @flowConfig) {
   const ctx = createBuildContext(config, "development");
 
-  console.log("Starting ReactFlow dev server...");
+  console.log("Starting @flow dev server...");
   console.log("Config:", ctx.config);
 
   // TODO: Implement dev server

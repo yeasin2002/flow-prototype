@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
 // Import generated routes
-import { routes } from 'virtual:reactflow-routes';
+import { routes } from 'virtual:@flow-routes';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
 }
 
 // Restore server data
-const initialData = (window as any).__REACTFLOW_DATA__;
+const initialData = (window as any).__@flow_DATA__;
 
 // Hydrate
 hydrateRoot(

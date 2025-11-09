@@ -58,7 +58,7 @@ packages/core/
 import type { UserConfig as ViteConfig } from "vite";
 import type { NitroConfig } from "nitropack";
 
-export interface ReactFlowConfig {
+export interface @flowConfig {
   /**
    * Root directory of the application
    * @default process.cwd()
@@ -112,7 +112,7 @@ export interface ReactFlowConfig {
   ssr?: boolean;
 }
 
-export interface ResolvedConfig extends Required<ReactFlowConfig> {
+export interface ResolvedConfig extends Required<@flowConfig> {
   // Resolved absolute paths
   rootDir: string;
   outDir: string;
@@ -152,10 +152,10 @@ export * from "./build";
 
 ```typescript
 import { createApp } from "vinxi";
-import type { ReactFlowConfig } from "../types";
+import type { @flowConfig } from "../types";
 import { createViteConfig } from "./vite";
 
-export function createVinxiApp(config: ReactFlowConfig) {
+export function createVinxiApp(config: @flowConfig) {
   return createApp({
     routers: [
       // Client router - Browser bundle
@@ -189,7 +189,7 @@ export function createVinxiApp(config: ReactFlowConfig) {
   });
 }
 
-export function defineConfig(config: ReactFlowConfig) {
+export function defineConfig(config: @flowConfig) {
   return config;
 }
 ```
@@ -203,9 +203,9 @@ export function defineConfig(config: ReactFlowConfig) {
 ```typescript
 import { defineConfig, type Plugin, type UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import type { ReactFlowConfig } from "../types";
+import type { @flowConfig } from "../types";
 
-export function createViteConfig(config: ReactFlowConfig, target: "client" | "server"): UserConfig {
+export function createViteConfig(config: @flowConfig, target: "client" | "server"): UserConfig {
   const isClient = target === "client";
 
   return defineConfig({
@@ -213,7 +213,7 @@ export function createViteConfig(config: ReactFlowConfig, target: "client" | "se
       react({
         jsxRuntime: "automatic",
       }),
-      ...createReactFlowPlugins(config, target),
+      ...create@flowPlugins(config, target),
     ],
 
     resolve: {
@@ -239,7 +239,7 @@ export function createViteConfig(config: ReactFlowConfig, target: "client" | "se
   });
 }
 
-function createReactFlowPlugins(config: ReactFlowConfig, target: "client" | "server"): Plugin[] {
+function create@flowPlugins(config: @flowConfig, target: "client" | "server"): Plugin[] {
   const plugins: Plugin[] = [];
 
   // Add route generation plugin
@@ -253,9 +253,9 @@ function createReactFlowPlugins(config: ReactFlowConfig, target: "client" | "ser
   return plugins;
 }
 
-function createRoutePlugin(config: ReactFlowConfig): Plugin {
+function createRoutePlugin(config: @flowConfig): Plugin {
   return {
-    name: "reactflow:routes",
+    name: "@flow:routes",
     configResolved() {
       // TODO: Scan routes directory and generate route manifest
       console.log("Scanning routes...");
@@ -265,7 +265,7 @@ function createRoutePlugin(config: ReactFlowConfig): Plugin {
 
 function createServerFunctionPlugin(): Plugin {
   return {
-    name: "reactflow:server-functions",
+    name: "@flow:server-functions",
     transform(code, id) {
       // TODO: Transform server function calls to RPC
       return code;
@@ -282,9 +282,9 @@ function createServerFunctionPlugin(): Plugin {
 
 ```typescript
 import { defineNitroConfig } from "nitropack/config";
-import type { ReactFlowConfig } from "../types";
+import type { @flowConfig } from "../types";
 
-export function createNitroConfig(config: ReactFlowConfig) {
+export function createNitroConfig(config: @flowConfig) {
   return defineNitroConfig({
     preset: "node-server",
 
@@ -324,13 +324,13 @@ export function createNitroConfig(config: ReactFlowConfig) {
 
 ```typescript
 import { resolve } from "pathe";
-import type { ReactFlowConfig, ResolvedConfig, BuildContext } from "../types";
+import type { @flowConfig, ResolvedConfig, BuildContext } from "../types";
 
 export * from "./vinxi";
 export * from "./vite";
 export * from "./nitro";
 
-export function resolveConfig(config: ReactFlowConfig = {}): ResolvedConfig {
+export function resolveConfig(config: @flowConfig = {}): ResolvedConfig {
   const root = config.root || process.cwd();
 
   return {
@@ -348,7 +348,7 @@ export function resolveConfig(config: ReactFlowConfig = {}): ResolvedConfig {
 }
 
 export function createBuildContext(
-  config: ReactFlowConfig,
+  config: @flowConfig,
   mode: "development" | "production" = "development",
 ): BuildContext {
   return {
@@ -357,10 +357,10 @@ export function createBuildContext(
   };
 }
 
-export async function build(config: ReactFlowConfig) {
+export async function build(config: @flowConfig) {
   const ctx = createBuildContext(config, "production");
 
-  console.log("Building ReactFlow app...");
+  console.log("Building @flow app...");
   console.log("Config:", ctx.config);
 
   // TODO: Implement actual build process
@@ -374,10 +374,10 @@ export async function build(config: ReactFlowConfig) {
   };
 }
 
-export async function dev(config: ReactFlowConfig) {
+export async function dev(config: @flowConfig) {
   const ctx = createBuildContext(config, "development");
 
-  console.log("Starting ReactFlow dev server...");
+  console.log("Starting @flow dev server...");
   console.log("Config:", ctx.config);
 
   // TODO: Implement dev server
@@ -409,7 +409,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
 // Import generated routes
-import { routes } from 'virtual:reactflow-routes';
+import { routes } from 'virtual:@flow-routes';
 
 function App() {
   return (
@@ -428,7 +428,7 @@ function App() {
 }
 
 // Restore server data
-const initialData = (window as any).__REACTFLOW_DATA__;
+const initialData = (window as any).__@flow_DATA__;
 
 // Hydrate
 hydrateRoot(
@@ -457,7 +457,7 @@ import { Routes, Route } from 'react-router-dom';
 import { defineEventHandler } from 'h3';
 
 // Import generated routes
-import { routes } from 'virtual:reactflow-routes';
+import { routes } from 'virtual:@flow-routes';
 
 export default defineEventHandler((event) => {
   const url = event.node.req.url || '/';
@@ -484,7 +484,7 @@ export default defineEventHandler((event) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ReactFlow App</title>
+        <title>@flow App</title>
       </head>
       <body>
         <div id="root">\${html}</div>
@@ -545,9 +545,9 @@ export { build, dev } from "./build";
 
 ```json
 {
-  "name": "@reactflow/core",
+  "name": "@@flow/core",
   "version": "0.0.1",
-  "description": "ReactFlow framework core",
+  "description": "@flow framework core",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -590,8 +590,8 @@ export { build, dev } from "./build";
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
-    "@reactflow/typescript-config": "workspace:*",
-    "@reactflow/eslint-config": "workspace:*",
+    "@@flow/typescript-config": "workspace:*",
+    "@@flow/eslint-config": "workspace:*",
     "@types/node": "^20.12.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

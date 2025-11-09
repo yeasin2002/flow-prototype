@@ -22,7 +22,7 @@ Step-by-step guide for building the framework from scratch:
 
 ### 3. Usage Documentation (`/docs/framework-example`)
 
-End-user documentation for developers using ReactFlow:
+End-user documentation for developers using @flow:
 - Installation and configuration
 - Feature guides (routing, server functions, etc.)
 - API reference

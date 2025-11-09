@@ -1,6 +1,6 @@
 # Technology Stack
 
-Complete breakdown of all tools, packages, and technologies used in building ReactFlow framework.
+Complete breakdown of all tools, packages, and technologies used in building @flow framework.
 
 ---
 
@@ -633,7 +633,7 @@ export default defineEventHandler(async (event) => {
 
 ### vs Next.js
 
-| Feature            | ReactFlow | Next.js           |
+| Feature            | @flow | Next.js           |
 | ------------------ | --------- | ----------------- |
 | Build Tool         | Vite      | Turbopack/Webpack |
 | Server             | Nitro     | Node.js           |
@@ -643,7 +643,7 @@ export default defineEventHandler(async (event) => {
 
 ### vs TanStack Start
 
-| Feature     | ReactFlow    | TanStack Start  |
+| Feature     | @flow    | TanStack Start  |
 | ----------- | ------------ | --------------- |
 | Build Tool  | Vinxi        | Vinxi           |
 | Server      | Nitro        | Nitro           |
@@ -653,7 +653,7 @@ export default defineEventHandler(async (event) => {
 
 ### vs Nuxt
 
-| Feature      | ReactFlow | Nuxt     |
+| Feature      | @flow | Nuxt     |
 | ------------ | --------- | -------- |
 | Framework    | React     | Vue      |
 | Build Tool   | Vite      | Vite     |
@@ -668,8 +668,8 @@ export default defineEventHandler(async (event) => {
 ### Step 1: Create Package
 
 ```bash
-mkdir reactflow-framework
-cd reactflow-framework
+mkdir @flow-framework
+cd @flow-framework
 npm init -y
 ```
 

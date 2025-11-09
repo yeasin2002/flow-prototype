@@ -1,4 +1,4 @@
-# ReactFlow Framework - Development Roadmap
+# @flow Framework - Development Roadmap
 
 A phased approach to building a production-ready full-stack React framework.
 

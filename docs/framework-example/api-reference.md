@@ -1,6 +1,6 @@
 # API Reference
 
-Complete API reference for ReactFlow framework.
+Complete API reference for @flow framework.
 
 ---
 
@@ -11,7 +11,7 @@ Complete API reference for ReactFlow framework.
 Define framework configuration.
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   port: 3000,
@@ -24,9 +24,9 @@ export default defineConfig({
 
 **Parameters:**
 
-- `config: ReactFlowConfig` - Configuration object
+- `config: @flowConfig` - Configuration object
 
-**Returns:** `ReactFlowConfig`
+**Returns:** `@flowConfig`
 
 ---
 
@@ -35,7 +35,7 @@ export default defineConfig({
 Build application for production.
 
 ```typescript
-import { build } from "@reactflow/core";
+import { build } from "@@flow/core";
 
 await build({
   minify: true,
@@ -56,7 +56,7 @@ await build({
 Start development server.
 
 ```typescript
-import { dev } from "@reactflow/core";
+import { dev } from "@@flow/core";
 
 await dev({
   port: 3000,
@@ -79,7 +79,7 @@ await dev({
 Create a type-safe server function.
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 
 export const getUser = createServerFn(async (ctx, id: number) => {
   const user = await db.users.findById(id);
@@ -101,7 +101,7 @@ export const getUser = createServerFn(async (ctx, id: number) => {
 Hook for querying server functions.
 
 ```typescript
-import { useServerQuery } from "@reactflow/server";
+import { useServerQuery } from "@@flow/server";
 import { getUser } from "../server/users";
 
 const { data, loading, error, refetch } = useServerQuery(getUser, [userId]);
@@ -130,7 +130,7 @@ const { data, loading, error, refetch } = useServerQuery(getUser, [userId]);
 Hook for calling server functions (mutations).
 
 ```typescript
-import { useServerFn } from "@reactflow/server";
+import { useServerFn } from "@@flow/server";
 import { createUser } from "../server/users";
 
 const { execute, loading, error } = useServerFn(createUser);
@@ -234,10 +234,10 @@ import { Link } from 'react-router-dom';
 
 ## Configuration Types
 
-### ReactFlowConfig
+### @flowConfig
 
 ```typescript
-interface ReactFlowConfig {
+interface @flowConfig {
   root?: string;
   outDir?: string;
   routesDir?: string;
@@ -267,12 +267,12 @@ interface ServerFunctionContext {
 
 ## CLI Commands
 
-### reactflow dev
+### @flow dev
 
 Start development server.
 
 ```bash
-reactflow dev [options]
+@flow dev [options]
 
 Options:
   -p, --port <port>    Port number (default: 3000)
@@ -282,12 +282,12 @@ Options:
 
 ---
 
-### reactflow build
+### @flow build
 
 Build for production.
 
 ```bash
-reactflow build [options]
+@flow build [options]
 
 Options:
   --no-minify          Disable minification
@@ -297,12 +297,12 @@ Options:
 
 ---
 
-### reactflow start
+### @flow start
 
 Start production server.
 
 ```bash
-reactflow start [options]
+@flow start [options]
 
 Options:
   -p, --port <port>    Port number (default: 3000)
@@ -310,12 +310,12 @@ Options:
 
 ---
 
-### reactflow create
+### @flow create
 
 Create new project.
 
 ```bash
-reactflow create [name] [options]
+@flow create [name] [options]
 
 Options:
   --template <name>    Template to use (basic, blog, ecommerce)
@@ -382,7 +382,7 @@ class NotFoundError extends Error {
 ### Create Middleware
 
 ```typescript
-import type { Middleware } from "@reactflow/core/middleware";
+import type { Middleware } from "@@flow/core/middleware";
 
 export const authMiddleware: Middleware = {
   name: "auth",
@@ -411,7 +411,7 @@ export const authMiddleware: Middleware = {
 Cache server function results.
 
 ```typescript
-import { withCache } from "@reactflow/server/cache";
+import { withCache } from "@@flow/server/cache";
 
 export const getData = createServerFn(async (ctx) => {
   return withCache(
@@ -435,7 +435,7 @@ export const getData = createServerFn(async (ctx) => {
 Clear cached data.
 
 ```typescript
-import { clearCache } from "@reactflow/server/cache";
+import { clearCache } from "@@flow/server/cache";
 
 clearCache("data"); // Clear specific key
 clearCache(); // Clear all

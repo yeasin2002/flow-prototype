@@ -1,6 +1,6 @@
 # Example: Todo App
 
-Build a complete todo application with ReactFlow.
+Build a complete todo application with @flow.
 
 ---
 
@@ -63,7 +63,7 @@ export const db = {
 **app/server/todos.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 import { db } from "./db";
 
 export const getTodos = createServerFn(async (ctx) => {
@@ -93,7 +93,7 @@ export const deleteTodo = createServerFn(async (ctx, id: number) => {
 
 ```typescript
 import { useState } from 'react';
-import { useServerQuery, useServerFn } from '@reactflow/server';
+import { useServerQuery, useServerFn } from '@@flow/server';
 import { getTodos, createTodo, toggleTodo, deleteTodo } from '../server/todos';
 
 type Filter = 'all' | 'active' | 'completed';
@@ -229,7 +229,7 @@ export default function TodoApp() {
         <p className="text-center text-gray-500 mt-8 text-sm">
           Double-click to edit a todo
           <br />
-          Created with ReactFlow
+          Created with @flow
         </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 # Product Overview
 
-ReactFlow is a full-stack React meta-framework built to understand modern SSR and hybrid rendering architecture. It's a learning project inspired by Next.js, TanStack Start, and Nuxt.
+@flow is a full-stack React meta-framework built to understand modern SSR and hybrid rendering architecture. It's a learning project inspired by Next.js, TanStack Start, and Nuxt.
 
 ## Core Features
 

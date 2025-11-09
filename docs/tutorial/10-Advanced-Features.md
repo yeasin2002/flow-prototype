@@ -1,6 +1,6 @@
 # Tutorial 10: Advanced Features
 
-Implement advanced features for your ReactFlow framework.
+Implement advanced features for your @flow framework.
 
 ---
 
@@ -80,7 +80,7 @@ export function composeMiddleware(middlewares: Middleware[]) {
 **Example middleware:**
 
 ```typescript
-import type { Middleware } from "@reactflow/core/middleware";
+import type { Middleware } from "@@flow/core/middleware";
 
 export const authMiddleware: Middleware = {
   name: "auth",
@@ -118,7 +118,7 @@ export const loggingMiddleware: Middleware = {
 **app/server/auth.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 import { sign, verify } from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
@@ -265,8 +265,8 @@ export function clearCache(key?: string) {
 **Usage:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
-import { withCache } from "@reactflow/server/cache";
+import { createServerFn } from "@@flow/server";
+import { withCache } from "@@flow/server/cache";
 
 export const getExpensiveData = createServerFn(async (ctx) => {
   return withCache(
@@ -439,8 +439,8 @@ export default function BlogPost() {
   return (
     <>
       <Helmet>
-        <title>My Blog Post - ReactFlow Blog</title>
-        <meta name="description" content="An amazing blog post about ReactFlow" />
+        <title>My Blog Post - @flow Blog</title>
+        <meta name="description" content="An amazing blog post about @flow" />
         <meta property="og:title" content="My Blog Post" />
         <meta property="og:image" content="https://example.com/image.jpg" />
       </Helmet>
@@ -458,7 +458,7 @@ export default function BlogPost() {
 **packages/server/src/middleware/rate-limit.ts:**
 
 ```typescript
-import type { Middleware } from "@reactflow/core/middleware";
+import type { Middleware } from "@@flow/core/middleware";
 
 interface RateLimitOptions {
   windowMs: number;

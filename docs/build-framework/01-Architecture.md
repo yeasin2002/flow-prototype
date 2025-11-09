@@ -1,6 +1,6 @@
 # Framework Architecture
 
-A deep dive into the architecture of our full-stack React framework (ReactFlow).
+A deep dive into the architecture of our full-stack React framework (@flow).
 
 ---
 
@@ -21,7 +21,7 @@ A deep dive into the architecture of our full-stack React framework (ReactFlow).
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    ReactFlow Framework                       │
+│                    @flow Framework                       │
 └─────────────────────────────────────────────────────────────┘
                             │
         ┌───────────────────┼───────────────────┐
@@ -517,7 +517,7 @@ export default function UserCard({ user }) {
 ### Project Structure
 
 ```
-reactflow/
+@flow/
 ├── packages/
 │   ├── core/              # Core framework code
 │   │   ├── src/
@@ -577,7 +577,7 @@ my-app/
 │   ├── favicon.ico
 │   └── images/
 │
-├── reactflow.config.ts   # Framework config
+├── @flow.config.ts   # Framework config
 └── package.json
 ```
 

@@ -42,7 +42,7 @@ Vinxi is a **JavaScript SDK for building full-stack applications**. It orchestra
 ```typescript
 import { createApp, type Router } from "vinxi";
 import { resolve } from "pathe";
-import type { ReactFlowConfig, ResolvedConfig } from "../types";
+import type { @flowConfig, ResolvedConfig } from "../types";
 import { createViteConfig } from "./vite";
 
 export function createVinxiApp(config: ResolvedConfig) {
@@ -107,7 +107,7 @@ export function createVinxiApp(config: ResolvedConfig) {
   });
 }
 
-export function defineConfig(config: ReactFlowConfig) {
+export function defineConfig(config: @flowConfig) {
   return config;
 }
 ```
@@ -187,12 +187,12 @@ export function createStaticRouter(ctx: RouterContext): Router {
 
 ```typescript
 import { createApp } from "vinxi";
-import type { ReactFlowConfig, ResolvedConfig } from "../types";
+import type { @flowConfig, ResolvedConfig } from "../types";
 import { resolveConfig } from "./index";
 import { createVinxiApp } from "./vinxi";
 
 export interface DevServerOptions {
-  config: ReactFlowConfig;
+  config: @flowConfig;
   port?: number;
   host?: string;
   open?: boolean;
@@ -201,7 +201,7 @@ export interface DevServerOptions {
 export async function startDevServer(options: DevServerOptions) {
   const config = resolveConfig(options.config);
 
-  console.log("🚀 Starting ReactFlow dev server...");
+  console.log("🚀 Starting @flow dev server...");
   console.log(`📁 Root: ${config.rootDir}`);
   console.log(`🌐 Port: ${config.port}`);
 
@@ -239,12 +239,12 @@ export async function stopDevServer(app: any) {
 
 ```typescript
 import { build as vinxiBuild } from "vinxi";
-import type { ReactFlowConfig, BuildResult } from "../types";
+import type { @flowConfig, BuildResult } from "../types";
 import { resolveConfig } from "./index";
 import { createVinxiApp } from "./vinxi";
 
 export interface BuildOptions {
-  config: ReactFlowConfig;
+  config: @flowConfig;
   minify?: boolean;
   sourcemap?: boolean;
 }
@@ -252,7 +252,7 @@ export interface BuildOptions {
 export async function buildProduction(options: BuildOptions): Promise<BuildResult> {
   const config = resolveConfig(options.config);
 
-  console.log("📦 Building ReactFlow app for production...");
+  console.log("📦 Building @flow app for production...");
   console.log(`📁 Output: ${config.outDir}`);
 
   const errors: Error[] = [];
@@ -356,7 +356,7 @@ function invalidateRouteManifest() {
 
 export function createHMRPlugin() {
   return {
-    name: "reactflow:hmr",
+    name: "@flow:hmr",
     configureServer(server: ViteDevServer) {
       setupHMR({
         server,
@@ -375,7 +375,7 @@ export function createHMRPlugin() {
 
 ```typescript
 import { resolve } from "pathe";
-import type { ReactFlowConfig, ResolvedConfig, BuildContext } from "../types";
+import type { @flowConfig, ResolvedConfig, BuildContext } from "../types";
 
 export * from "./vinxi";
 export * from "./vite";
@@ -385,7 +385,7 @@ export * from "./dev-server";
 export * from "./production-build";
 export * from "./hmr";
 
-export function resolveConfig(config: ReactFlowConfig = {}): ResolvedConfig {
+export function resolveConfig(config: @flowConfig = {}): ResolvedConfig {
   const root = config.root || process.cwd();
 
   return {
@@ -403,7 +403,7 @@ export function resolveConfig(config: ReactFlowConfig = {}): ResolvedConfig {
 }
 
 export function createBuildContext(
-  config: ReactFlowConfig,
+  config: @flowConfig,
   mode: "development" | "production" = "development",
 ): BuildContext {
   return {
@@ -413,13 +413,13 @@ export function createBuildContext(
 }
 
 // Main build function
-export async function build(config: ReactFlowConfig) {
+export async function build(config: @flowConfig) {
   const { buildProduction } = await import("./production-build");
   return buildProduction({ config });
 }
 
 // Main dev function
-export async function dev(config: ReactFlowConfig) {
+export async function dev(config: @flowConfig) {
   const { startDevServer } = await import("./dev-server");
   return startDevServer({ config });
 }
@@ -429,10 +429,10 @@ export async function dev(config: ReactFlowConfig) {
 
 ## 🚀 Step 7: Create Example App Config
 
-**examples/basic/reactflow.config.ts:**
+**examples/basic/@flow.config.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   root: __dirname,

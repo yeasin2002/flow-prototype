@@ -1,4 +1,4 @@
-# Building ReactFlow Framework - Complete Summary
+# Building @flow Framework - Complete Summary
 
 Everything you need to know about building a full-stack React framework.
 
@@ -37,7 +37,7 @@ Everything you need to know about building a full-stack React framework.
 
 ## 🎯 What You're Building
 
-### ReactFlow Framework
+### @flow Framework
 
 A modern, full-stack React framework with:
 
@@ -85,7 +85,7 @@ A modern, full-stack React framework with:
 
 ```
 ┌─────────────────────────────────────────┐
-│         ReactFlow Framework             │
+│         @flow Framework             │
 ├─────────────────────────────────────────┤
 │                                         │
 │  Vinxi (Build Orchestrator)             │
@@ -194,7 +194,7 @@ Browser Receives HTML
 
 ```bash
 # 1. Create project
-mkdir reactflow-framework && cd reactflow-framework
+mkdir @flow-framework && cd @flow-framework
 npm init -y
 
 # 2. Install dependencies
@@ -394,7 +394,7 @@ export default function Counter() {
 
 ### vs Next.js
 
-| Feature        | ReactFlow | Next.js          |
+| Feature        | @flow | Next.js          |
 | -------------- | --------- | ---------------- |
 | Build Tool     | Vite      | Turbopack        |
 | Server         | Nitro     | Node.js          |
@@ -402,7 +402,7 @@ export default function Counter() {
 | Learning Curve | Medium    | Medium           |
 | Maturity       | New       | Stable           |
 
-**When to use ReactFlow:**
+**When to use @flow:**
 
 - Want universal deployment
 - Prefer Vite over Webpack
@@ -420,14 +420,14 @@ export default function Counter() {
 
 ### vs TanStack Start
 
-| Feature    | ReactFlow    | TanStack Start  |
+| Feature    | @flow    | TanStack Start  |
 | ---------- | ------------ | --------------- |
 | Build Tool | Vinxi        | Vinxi           |
 | Server     | Nitro        | Nitro           |
 | Router     | React Router | TanStack Router |
 | Maturity   | New          | RC              |
 
-**When to use ReactFlow:**
+**When to use @flow:**
 
 - Want to learn by building
 - Need custom features
@@ -443,14 +443,14 @@ export default function Counter() {
 
 ### vs Nuxt
 
-| Feature    | ReactFlow | Nuxt   |
+| Feature    | @flow | Nuxt   |
 | ---------- | --------- | ------ |
 | Framework  | React     | Vue    |
 | Build Tool | Vite      | Vite   |
 | Server     | Nitro     | Nitro  |
 | Maturity   | New       | Stable |
 
-**When to use ReactFlow:**
+**When to use @flow:**
 
 - Prefer React
 - Want to learn

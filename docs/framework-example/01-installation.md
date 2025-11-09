@@ -1,12 +1,12 @@
 # Installation
 
-Get started with ReactFlow in minutes.
+Get started with @flow in minutes.
 
 ---
 
 ## Prerequisites
 
-Before installing ReactFlow, ensure you have:
+Before installing @flow, ensure you have:
 
 - **Node.js** 20.0.0 or higher
 - **pnpm** 8.0.0 or higher (recommended) or npm/yarn
@@ -22,17 +22,17 @@ pnpm --version  # Should be >= 8.0.0
 
 ## Create New Project
 
-### Using create-reactflow (Recommended)
+### Using create-@flow (Recommended)
 
 ```bash
 # With pnpm
-pnpm create reactflow my-app
+pnpm create @flow my-app
 
 # With npm
-npx create-reactflow my-app
+npx create-@flow my-app
 
 # With yarn
-yarn create reactflow my-app
+yarn create @flow my-app
 ```
 
 This will:
@@ -45,7 +45,7 @@ This will:
 ### Interactive Setup
 
 ```bash
-pnpm create reactflow
+pnpm create @flow
 ```
 
 You'll be prompted for:
@@ -74,19 +74,19 @@ cd my-app
 pnpm init
 ```
 
-### 3. Install ReactFlow
+### 3. Install @flow
 
 ```bash
-pnpm add @reactflow/core react react-dom
-pnpm add -D @reactflow/cli typescript @types/react @types/react-dom
+pnpm add @@flow/core react react-dom
+pnpm add -D @@flow/cli typescript @types/react @types/react-dom
 ```
 
 ### 4. Create Configuration
 
-**reactflow.config.ts:**
+**@flow.config.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   port: 3000,
@@ -140,9 +140,9 @@ export function render(url: string) {
 ```json
 {
   "scripts": {
-    "dev": "reactflow dev",
-    "build": "reactflow build",
-    "start": "reactflow start"
+    "dev": "@flow dev",
+    "build": "@flow build",
+    "start": "@flow start"
   }
 }
 ```
@@ -154,7 +154,7 @@ export function render(url: string) {
 ### Basic Template
 
 ```bash
-pnpm create reactflow my-app --template basic
+pnpm create @flow my-app --template basic
 ```
 
 Includes:
@@ -166,7 +166,7 @@ Includes:
 ### Blog Template
 
 ```bash
-pnpm create reactflow my-blog --template blog
+pnpm create @flow my-blog --template blog
 ```
 
 Includes:
@@ -179,7 +179,7 @@ Includes:
 ### E-commerce Template
 
 ```bash
-pnpm create reactflow my-store --template ecommerce
+pnpm create @flow my-store --template ecommerce
 ```
 
 Includes:
@@ -192,7 +192,7 @@ Includes:
 ### Full-stack Template
 
 ```bash
-pnpm create reactflow my-app --template fullstack
+pnpm create @flow my-app --template fullstack
 ```
 
 Includes:
@@ -263,7 +263,7 @@ pnpm dev --port 4000
 
 ```bash
 # Clear cache and reinstall
-rm -rf node_modules .reactflow
+rm -rf node_modules .@flow
 pnpm install
 ```
 
@@ -297,19 +297,19 @@ pnpm build
 ### Check Current Version
 
 ```bash
-pnpm list @reactflow/core
+pnpm list @@flow/core
 ```
 
 ### Upgrade to Latest
 
 ```bash
-pnpm update @reactflow/core @reactflow/cli
+pnpm update @@flow/core @@flow/cli
 ```
 
 ### Upgrade to Specific Version
 
 ```bash
-pnpm add @reactflow/core@1.2.3
+pnpm add @@flow/core@1.2.3
 ```
 
 ---
@@ -318,7 +318,7 @@ pnpm add @reactflow/core@1.2.3
 
 ```bash
 # Remove dependencies
-pnpm remove @reactflow/core @reactflow/cli
+pnpm remove @@flow/core @@flow/cli
 
 # Delete project
 cd ..

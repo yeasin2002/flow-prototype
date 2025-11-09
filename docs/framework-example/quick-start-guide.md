@@ -1,13 +1,13 @@
 # Quick Start Guide
 
-Get your ReactFlow app running in 5 minutes.
+Get your @flow app running in 5 minutes.
 
 ---
 
 ## Step 1: Create Project (1 min)
 
 ```bash
-pnpm create reactflow my-app
+pnpm create @flow my-app
 cd my-app
 ```
 
@@ -39,7 +39,7 @@ Open `http://localhost:3000` - you should see the welcome page!
 export default function Hello() {
   return (
     <div>
-      <h1>Hello, ReactFlow!</h1>
+      <h1>Hello, @flow!</h1>
       <p>This is my first route.</p>
     </div>
   );
@@ -55,7 +55,7 @@ Visit `http://localhost:3000/hello`
 **app/server/hello.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 
 export const getMessage = createServerFn(async (ctx) => {
   return { message: "Hello from the server!" };
@@ -65,7 +65,7 @@ export const getMessage = createServerFn(async (ctx) => {
 **app/routes/hello.tsx:**
 
 ```typescript
-import { useServerQuery } from '@reactflow/server';
+import { useServerQuery } from '@@flow/server';
 import { getMessage } from '../server/hello';
 
 export default function Hello() {
@@ -75,7 +75,7 @@ export default function Hello() {
 
   return (
     <div>
-      <h1>Hello, ReactFlow!</h1>
+      <h1>Hello, @flow!</h1>
       <p>{data?.message}</p>
     </div>
   );
@@ -102,7 +102,7 @@ pnpm start
 
 ## 🎉 Congratulations!
 
-You've created your first ReactFlow app!
+You've created your first @flow app!
 
 ---
 
@@ -164,7 +164,7 @@ my-app/
 ├── public/              # Static files
 │   └── favicon.ico
 │
-├── reactflow.config.ts  # Configuration
+├── @flow.config.ts  # Configuration
 └── package.json
 ```
 
@@ -173,9 +173,9 @@ my-app/
 ## Getting Help
 
 - [Documentation](./README.md)
-- [GitHub Issues](https://github.com/yourusername/reactflow/issues)
-- [Discord Community](https://discord.gg/reactflow)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/reactflow)
+- [GitHub Issues](https://github.com/yourusername/@flow/issues)
+- [Discord Community](https://discord.gg/@flow)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/@flow)
 
 ---
 

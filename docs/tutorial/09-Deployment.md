@@ -1,6 +1,6 @@
 # Tutorial 09: Deployment
 
-Deploy your ReactFlow application to production.
+Deploy your @flow application to production.
 
 ---
 
@@ -28,7 +28,7 @@ Production deployment with:
 
 ```bash
 # Build for production
-reactflow build
+@flow build
 
 # Output structure:
 # .output/
@@ -65,10 +65,10 @@ API_URL=https://yourdomain.com/api
 
 **Update config to use env vars:**
 
-**reactflow.config.ts:**
+**@flow.config.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   port: parseInt(process.env.PORT || "3000"),
@@ -166,10 +166,10 @@ volumes:
 
 ```bash
 # Build image
-docker build -t reactflow-app .
+docker build -t @flow-app .
 
 # Run container
-docker run -p 3000:3000 reactflow-app
+docker run -p 3000:3000 @flow-app
 
 # Or use docker-compose
 docker-compose up -d
@@ -206,14 +206,14 @@ sudo apt install -y nginx
 pnpm build
 
 # Upload to VPS
-scp -r .output package.json user@your-vps:/var/www/reactflow-app/
+scp -r .output package.json user@your-vps:/var/www/@flow-app/
 
 # On VPS, install production dependencies
-cd /var/www/reactflow-app
+cd /var/www/@flow-app
 pnpm install --prod
 
 # Start with PM2
-pm2 start .output/server/index.mjs --name reactflow-app
+pm2 start .output/server/index.mjs --name @flow-app
 
 # Save PM2 process list
 pm2 save
@@ -224,7 +224,7 @@ pm2 startup
 
 **Configure nginx:**
 
-**/etc/nginx/sites-available/reactflow-app:**
+**/etc/nginx/sites-available/@flow-app:**
 
 ```nginx
 server {
@@ -237,13 +237,13 @@ server {
 
     # Static files
     location /_build/ {
-        alias /var/www/reactflow-app/.output/public/_build/;
+        alias /var/www/@flow-app/.output/public/_build/;
         expires 1y;
         add_header Cache-Control "public, immutable";
     }
 
     location /assets/ {
-        alias /var/www/reactflow-app/.output/public/assets/;
+        alias /var/www/@flow-app/.output/public/assets/;
         expires 1y;
         add_header Cache-Control "public, immutable";
     }
@@ -266,7 +266,7 @@ server {
 **Enable site and restart nginx:**
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/reactflow-app /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/@flow-app /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
@@ -405,7 +405,7 @@ const PostDetail = lazy(() => import("./routes/posts/[id]"));
 **app/server/health.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 
 export const healthCheck = createServerFn(async (ctx) => {
   return {
@@ -423,7 +423,7 @@ export const healthCheck = createServerFn(async (ctx) => {
 pm2 monit
 
 # View logs
-pm2 logs reactflow-app
+pm2 logs @flow-app
 
 # Setup log rotation
 pm2 install pm2-logrotate
@@ -448,7 +448,7 @@ pm2 install pm2-logrotate
 
 ## 🎉 Success!
 
-Your ReactFlow application is now deployed to production!
+Your @flow application is now deployed to production!
 
 ---
 

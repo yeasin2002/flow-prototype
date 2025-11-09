@@ -14,7 +14,7 @@ Core framework code split into focused packages:
   - Runtime utilities
   - Exports: `.`, `./builds`, `./runtime`, `./config`
 - **@flow/cli** - CLI tool for creating projects (placeholder)
-- **@flow/create-reactflow** - Project scaffolding (placeholder)
+- **@flow/create-@flow** - Project scaffolding (placeholder)
 - **@flow/router** - File-based routing system (placeholder)
 - **@flow/server** - Server utilities and functions (placeholder)
 - **@flow/image** - Image optimization (placeholder)

@@ -10,7 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 import { defineEventHandler } from 'h3';
 
 // Import generated routes
-import { routes } from 'virtual:reactflow-routes';
+import { routes } from 'virtual:@flow-routes';
 
 export default defineEventHandler((event) => {
   const url = event.node.req.url || '/';
@@ -37,7 +37,7 @@ export default defineEventHandler((event) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ReactFlow App</title>
+        <title>@flow App</title>
       </head>
       <body>
         <div id="root">\${html}</div>

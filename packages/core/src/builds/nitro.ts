@@ -1,7 +1,7 @@
 import { defineNitroConfig } from "nitropack/config";
-import type { ReactFlowConfig } from "../src/types";
+import type { @flowConfig } from "../src/types";
 
-export function createNitroConfig(config: ReactFlowConfig) {
+export function createNitroConfig(config: @flowConfig) {
   return defineNitroConfig({
     preset: "node-server",
 

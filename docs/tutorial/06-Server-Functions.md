@@ -218,7 +218,7 @@ import MagicString from "magic-string";
 
 export function serverFunctionsPlugin(): Plugin {
   return {
-    name: "reactflow:server-functions",
+    name: "@flow:server-functions",
 
     transform(code, id) {
       // Only transform .ts/.tsx files
@@ -274,7 +274,7 @@ export * from "./vite-plugin";
 **examples/basic/app/server/users.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 
 export const getUsers = createServerFn(async (ctx) => {
   // This runs on the server
@@ -295,7 +295,7 @@ export const getUserById = createServerFn(async (ctx, id: number) => {
 **examples/basic/app/routes/users.tsx:**
 
 ```typescript
-import { useServerQuery } from "@reactflow/server";
+import { useServerQuery } from "@@flow/server";
 import { getUsers } from "../server/users";
 
 export default function Users() {

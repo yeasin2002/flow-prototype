@@ -209,13 +209,13 @@ export interface RoutesPluginOptions {
 }
 
 export function routesPlugin(options: RoutesPluginOptions): Plugin {
-  const virtualModuleId = "virtual:reactflow-routes";
+  const virtualModuleId = "virtual:@flow-routes";
   const resolvedVirtualModuleId = "\0" + virtualModuleId;
 
   let routeCode: string;
 
   return {
-    name: "reactflow:routes",
+    name: "@flow:routes",
 
     async buildStart() {
       // Generate routes on build start
@@ -343,10 +343,10 @@ export * from "./vite-plugin";
 ```typescript
 import { defineConfig, type UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { routesPlugin } from "@reactflow/router";
-import type { ReactFlowConfig } from "../types";
+import { routesPlugin } from "@@flow/router";
+import type { @flowConfig } from "../types";
 
-export function createViteConfig(config: ReactFlowConfig, target: "client" | "server"): UserConfig {
+export function createViteConfig(config: @flowConfig, target: "client" | "server"): UserConfig {
   const isClient = target === "client";
 
   return defineConfig({
@@ -387,7 +387,7 @@ export default function Home() {
   return (
     <div>
       <h1>Home Page</h1>
-      <p>Welcome to ReactFlow!</p>
+      <p>Welcome to @flow!</p>
     </div>
   );
 }

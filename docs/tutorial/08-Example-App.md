@@ -1,6 +1,6 @@
 # Tutorial 08: Example Application
 
-Build a complete example application using your ReactFlow framework.
+Build a complete example application using your @flow framework.
 
 ---
 
@@ -29,7 +29,7 @@ A full-featured blog app with:
 
 ```bash
 # Create new project
-reactflow create blog-app
+@flow create blog-app
 
 # Navigate to project
 cd blog-app
@@ -61,7 +61,7 @@ blog-app/
 │       └── PostCard.tsx
 ├── public/
 │   └── styles.css
-├── reactflow.config.ts
+├── @flow.config.ts
 └── package.json
 ```
 
@@ -84,8 +84,8 @@ export interface Post {
 let posts: Post[] = [
   {
     id: 1,
-    title: "Getting Started with ReactFlow",
-    content: "ReactFlow is a modern full-stack React framework...",
+    title: "Getting Started with @flow",
+    content: "@flow is a modern full-stack React framework...",
     author: "John Doe",
     createdAt: new Date("2024-01-01"),
   },
@@ -127,7 +127,7 @@ export const db = {
 **app/server/posts.ts:**
 
 ```typescript
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 import { db } from "./db";
 
 export const getPosts = createServerFn(async (ctx) => {
@@ -170,7 +170,7 @@ export default function Layout() {
         <nav className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="text-2xl font-bold text-blue-600">
-              ReactFlow Blog
+              @flow Blog
             </Link>
             <div className="space-x-4">
               <Link to="/" className="text-gray-600 hover:text-gray-900">
@@ -193,7 +193,7 @@ export default function Layout() {
 
       <footer className="bg-white border-t mt-12">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600">
-          Built with ReactFlow
+          Built with @flow
         </div>
       </footer>
     </div>
@@ -213,7 +213,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="text-center">
-      <h1 className="text-5xl font-bold text-gray-900 mb-4">Welcome to ReactFlow Blog</h1>
+      <h1 className="text-5xl font-bold text-gray-900 mb-4">Welcome to @flow Blog</h1>
       <p className="text-xl text-gray-600 mb-8">A modern full-stack React framework</p>
 
       <div className="space-x-4">
@@ -252,7 +252,7 @@ export default function Home() {
 
 ```typescript
 import { Link } from "react-router-dom";
-import { useServerQuery } from "@reactflow/server";
+import { useServerQuery } from "@@flow/server";
 import { getPosts } from "../../server/posts";
 
 export default function Posts() {
@@ -301,7 +301,7 @@ export default function Posts() {
 
 ```typescript
 import { useParams, useNavigate } from "react-router-dom";
-import { useServerQuery, useServerFn } from "@reactflow/server";
+import { useServerQuery, useServerFn } from "@@flow/server";
 import { getPostById, deletePost } from "../../server/posts";
 
 export default function PostDetail() {
@@ -354,7 +354,7 @@ export default function PostDetail() {
 ```typescript
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useServerFn } from "@reactflow/server";
+import { useServerFn } from "@@flow/server";
 import { createPost } from "../../server/posts";
 
 export default function NewPost() {

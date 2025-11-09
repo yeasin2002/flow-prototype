@@ -1,6 +1,6 @@
-# ReactFlow Framework - Usage Guide
+# @flow Framework - Usage Guide
 
-Complete guide to using ReactFlow as your full-stack React framework.
+Complete guide to using @flow as your full-stack React framework.
 
 ---
 
@@ -8,7 +8,7 @@ Complete guide to using ReactFlow as your full-stack React framework.
 
 ```bash
 # Create a new project
-npx create-reactflow my-app
+npx create-@flow my-app
 
 # Navigate to project
 cd my-app
@@ -51,7 +51,7 @@ my-app/
 │   ├── favicon.ico
 │   └── images/
 │
-├── reactflow.config.ts      # Framework configuration
+├── @flow.config.ts      # Framework configuration
 ├── package.json
 └── tsconfig.json
 ```
@@ -103,7 +103,7 @@ my-app/
 
 ```typescript
 // app/routes/blog/[slug].tsx
-import { useServerQuery } from '@reactflow/server';
+import { useServerQuery } from '@@flow/server';
 import { getPostBySlug } from '../../server/blog';
 
 export default function BlogPost() {
@@ -125,7 +125,7 @@ export default function BlogPost() {
 
 ```typescript
 // app/server/api.ts
-import { createServerFn } from "@reactflow/server";
+import { createServerFn } from "@@flow/server";
 
 export const getUsers = createServerFn(async (ctx) => {
   const users = await db.users.findAll();
@@ -142,7 +142,7 @@ export const createUser = createServerFn(async (ctx, data) => {
 
 ```typescript
 // app/routes/contact.tsx
-import { useServerFn } from '@reactflow/server';
+import { useServerFn } from '@@flow/server';
 import { sendContactEmail } from '../server/email';
 
 export default function Contact() {
@@ -191,10 +191,10 @@ pnpm type-check       # Check TypeScript
 
 ## 🔧 Configuration
 
-**reactflow.config.ts:**
+**@flow.config.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   // Server
@@ -236,9 +236,9 @@ export default defineConfig({
 
 ## 🤝 Community
 
-- [GitHub](https://github.com/yourusername/reactflow)
-- [Discord](https://discord.gg/reactflow)
-- [Twitter](https://twitter.com/reactflow)
+- [GitHub](https://github.com/yourusername/@flow)
+- [Discord](https://discord.gg/@flow)
+- [Twitter](https://twitter.com/@flow)
 
 ---
 

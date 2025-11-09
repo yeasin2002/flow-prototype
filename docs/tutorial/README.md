@@ -1,4 +1,4 @@
-# ReactFlow Framework Tutorial
+# @flow Framework Tutorial
 
 Complete guide to building a full-stack React framework with Vite, Vinxi, and Nitro.
 
@@ -89,10 +89,10 @@ A complete full-stack framework with:
 
 ```bash
 # Clone the tutorial repository
-git clone https://github.com/yourusername/reactflow-tutorial
+git clone https://github.com/yourusername/@flow-tutorial
 
 # Follow along starting with Chapter 1
-cd reactflow-tutorial
+cd @flow-tutorial
 ```
 
 ---
@@ -168,7 +168,7 @@ Universal server framework:
 ## 📦 Final Package Structure
 
 ```
-reactflow/
+@flow/
 ├── packages/
 │   ├── core/           # Framework core
 │   ├── router/         # Routing system
@@ -176,7 +176,7 @@ reactflow/
 │   ├── image/          # Image optimization
 │   ├── link/           # Smart Link component
 │   ├── cli/            # CLI tool
-│   └── create-reactflow/ # Project scaffolder
+│   └── create-@flow/ # Project scaffolder
 ├── apps/
 │   ├── example/        # Example application
 │   └── docs/           # Documentation site

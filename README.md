@@ -1,4 +1,4 @@
-# ReactFlow - Full-Stack React Meta-Framework
+# @flow - Full-Stack React Meta-Framework
 
 A modern full-stack React framework built with Vite, Nitro, and Vinxi - inspired by Next.js, TanStack Start, and Nuxt.
 
@@ -51,7 +51,7 @@ Step-by-step guide to building the framework from scratch (10 chapters):
 
 ### 🚀 [Usage Guide](./docs/framework-example/)
 
-End-user documentation for developers using ReactFlow:
+End-user documentation for developers using @flow:
 
 - **[Installation](./docs/framework-example/01-installation.md)** - Setup and installation
 - **[Configuration](./docs/framework-example/02-configuration.md)** - Framework configuration
@@ -74,7 +74,7 @@ npm >= 10.x
 
 ### Framework Name
 
-Let's call it **"ReactFlow"** (you can change this later)
+Let's call it **"@flow"** (you can change this later)
 
 ### Development Approach
 
@@ -107,7 +107,7 @@ We'll build this framework in **3 stages**:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     ReactFlow Framework                      │
+│                     @flow Framework                      │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
@@ -255,7 +255,7 @@ Your framework is ready when:
 
 ## 🤝 Comparison with Existing Frameworks
 
-| Feature                 | ReactFlow | Next.js      | TanStack Start | Nuxt |
+| Feature                 | @flow | Next.js      | TanStack Start | Nuxt |
 | ----------------------- | --------- | ------------ | -------------- | ---- |
 | SSR                     | ✅        | ✅           | ✅             | ✅   |
 | File Routing            | ✅        | ✅           | ✅             | ✅   |

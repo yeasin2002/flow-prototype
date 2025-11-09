@@ -1,15 +1,15 @@
 # Configuration
 
-Configure ReactFlow to match your project needs.
+Configure @flow to match your project needs.
 
 ---
 
 ## Configuration File
 
-Create `reactflow.config.ts` in your project root:
+Create `@flow.config.ts` in your project root:
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   // Your configuration here
@@ -145,7 +145,7 @@ export default defineConfig({
 
     // External packages
     externals: {
-      inline: ["@reactflow/core"],
+      inline: ["@@flow/core"],
     },
 
     // Development options
@@ -170,7 +170,7 @@ export default defineConfig({
 
 ```json
 {
-  "extends": "@reactflow/typescript-config/react.json",
+  "extends": "@@flow/typescript-config/react.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -178,9 +178,9 @@ export default defineConfig({
       "@components/*": ["./app/components/*"],
       "@utils/*": ["./app/utils/*"]
     },
-    "types": ["vite/client", "@reactflow/core"]
+    "types": ["vite/client", "@@flow/core"]
   },
-  "include": ["app", "reactflow.config.ts"],
+  "include": ["app", "@flow.config.ts"],
   "exclude": ["node_modules", ".output", ".vinxi"]
 }
 ```
@@ -191,10 +191,10 @@ export default defineConfig({
 
 ### Development
 
-**reactflow.config.dev.ts:**
+**@flow.config.dev.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   port: 3000,
@@ -217,10 +217,10 @@ export default defineConfig({
 
 ### Production
 
-**reactflow.config.prod.ts:**
+**@flow.config.prod.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 export default defineConfig({
   port: 8080,
@@ -252,10 +252,10 @@ export default defineConfig({
 
 ### Load Config Based on Environment
 
-**reactflow.config.ts:**
+**@flow.config.ts:**
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -278,7 +278,7 @@ export default defineConfig({
 ### Add Custom Plugins
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
+import { defineConfig } from "@@flow/core";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
@@ -297,9 +297,9 @@ export default defineConfig({
 ### Framework Plugins
 
 ```typescript
-import { defineConfig } from "@reactflow/core";
-import { imageOptimizer } from "@reactflow/image";
-import { mdx } from "@reactflow/mdx";
+import { defineConfig } from "@@flow/core";
+import { imageOptimizer } from "@@flow/image";
+import { mdx } from "@@flow/mdx";
 
 export default defineConfig({
   vite: {
@@ -395,7 +395,7 @@ export default defineConfig({
     // Dependency optimization
     optimizeDeps: {
       include: ["react", "react-dom", "react-router-dom"],
-      exclude: ["@reactflow/core"],
+      exclude: ["@@flow/core"],
     },
   },
 });
@@ -405,7 +405,7 @@ export default defineConfig({
 
 ## Configuration Validation
 
-ReactFlow validates your configuration at startup:
+@flow validates your configuration at startup:
 
 ```typescript
 export default defineConfig({
@@ -424,8 +424,8 @@ export default defineConfig({
 ### Merge Configurations
 
 ```typescript
-import { defineConfig, mergeConfig } from "@reactflow/core";
-import baseConfig from "./reactflow.config.base";
+import { defineConfig, mergeConfig } from "@@flow/core";
+import baseConfig from "./@flow.config.base";
 
 export default defineConfig(
   mergeConfig(baseConfig, {
