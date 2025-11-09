@@ -17,7 +17,7 @@ Build a production-ready full-stack React meta-framework with:
 - ✅ **Edge Ready** - Deploy anywhere (Vercel, Cloudflare, etc.)
 - ✅ **TypeScript First** - Full type safety
 - ✅ **CLI Tool** - Project scaffolding and development commands
-
+<!-- 
 ---
 
 ## 📚 Documentation
@@ -61,7 +61,7 @@ End-user documentation for developers using @flow:
 - **[Quick Start Guide](./docs/framework-example/quick-start-guide.md)** - Get started quickly
 - **[Examples](./docs/framework-example/examples/)** - Real-world examples (blog, todo app)
 
----
+--- -->
 
 ## 🚀 Quick Start
 
