@@ -37,7 +37,7 @@ export function createVinxiApp(config: FlowConfig) {
         name: "api",
         type: "http",
         base: "/api",
-        handler: "./app/server/**/*.ts",
+        handler: "./app/server/api-handler.ts",
         target: "server",
       },
     ],
