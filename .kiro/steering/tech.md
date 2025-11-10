@@ -9,13 +9,13 @@
 
 ## Core Dependencies
 
+- **vite** ^7.x - Fast bundler and dev server
+- **nitro** ^3.x (Alpha) - Universal server (Vite plugin)
 - **vinxi** ^0.5.x - Multi-build orchestrator
-- **nitro** ^2.9.x - Universal server framework
-- **vite** ^5.x - Fast bundler
 - **react** ^19.x - UI library
 - **react-dom** ^19.x - React DOM renderer
 - **react-router-dom** ^6.x - Client routing
-- **h3** ^1.x - HTTP framework (Nitro's foundation)
+- **h3** ^1.x - HTTP framework (used by Nitro)
 
 ## Build Tools
 

@@ -134,18 +134,18 @@ export default function Counter() {
 │           @flow Framework               │
 ├─────────────────────────────────────────┤
 │                                         │
+│  Vite   →  Build tool + dev server      │
+│  Nitro  →  Server (Vite plugin)         │
 │  Vinxi  →  Multi-build orchestration    │
-│  Vite   →  Lightning-fast bundling      │
-│  Nitro  →  Universal server runtime     │
 │                                         │
 └─────────────────────────────────────────┘
 ```
 
-**Vinxi** orchestrates separate client and server builds, ensuring optimal code splitting and bundle sizes.
-
 **Vite** provides instant HMR during development and highly optimized production builds.
 
-**Nitro** enables universal deployment - from traditional Node.js servers to edge runtimes and serverless platforms.
+**Nitro v3** extends Vite with production-ready server capabilities as a plugin, enabling file-based API routes and universal deployment.
+
+**Vinxi** orchestrates separate client and server builds, ensuring optimal code splitting and bundle sizes.
 
 ## 🛠️ CLI Commands
 
@@ -166,38 +166,33 @@ pnpm type-check       # TypeScript validation
 
 ## ⚙️ Configuration
 
-Configure @flow with `flow.config.ts`:
+Configure @flow with `vite.config.ts`:
 
 ```typescript
-import { defineConfig } from '@flow/core';
+import { defineConfig } from 'vite';
+import { nitro } from 'nitro/vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  // Server configuration
-  server: {
-    port: 3000,
-    ssr: true,
-  },
-  
-  // Directory structure
-  directories: {
-    routes: 'app/routes',
-    server: 'app/server',
-    public: 'public',
-  },
-  
-  // Vite configuration
-  vite: {
-    plugins: [],
-    resolve: {
-      alias: {
-        '@': './app',
-      },
-    },
-  },
+  plugins: [
+    react(),
+    nitro()
+  ],
   
   // Nitro configuration
   nitro: {
     preset: 'node-server', // or 'cloudflare', 'vercel', etc.
+  },
+  
+  // Vite configuration
+  resolve: {
+    alias: {
+      '@': './app',
+    },
+  },
+  
+  server: {
+    port: 3000,
   },
 });
 ```

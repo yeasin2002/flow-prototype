@@ -51,39 +51,66 @@ export default createApp({
 
 ---
 
-### 2. Nitro - Universal Server
+### 2. Nitro - Universal Server (Vite Plugin)
 
-**Version:** `^2.9.x`  
-**Purpose:** Server runtime and deployment  
-**GitHub:** https://github.com/unjs/nitro
+**Version:** `^3.x` (Alpha)  
+**Package:** `nitro` (formerly `nitropack`)  
+**Purpose:** Production-ready server as a Vite plugin  
+**GitHub:** https://github.com/nitrojs/nitro  
+**Docs:** https://v3.nitro.build/
 
 **What it does:**
 
-- HTTP server with H3
+- Extends Vite with server capabilities
+- File-based API routes in routes/ folder
 - Universal deployment (Node, Edge, Serverless)
-- API routes
-- Middleware system
-- Built-in optimizations
+- Support for multiple backend frameworks (H3, Hono, Elysia)
+- Fast HMR on server routes
+- Zero-config deployment
 
 **Key Features:**
 
 ```typescript
-import { defineNitroConfig } from "nitropack/config";
+// vite.config.ts
+import { defineConfig } from 'vite'
+import { nitro } from 'nitro/vite'
 
-export default defineNitroConfig({
-  preset: "node-server", // or 'cloudflare', 'vercel', etc.
-  handlers: [
-    {
-      route: "/**",
-      handler: "./dist/server/entry.js",
-    },
+export default defineConfig({
+  plugins: [
+    nitro()
   ],
-});
+  nitro: {
+    preset: 'node-server' // or 'cloudflare', 'vercel', etc.
+  }
+})
+```
+
+**File-based Routes:**
+
+```typescript
+// routes/hello.ts
+import { defineHandler } from 'nitro/h3'
+
+export default defineHandler(() => {
+  return { api: 'works!' }
+})
+```
+
+**Or use your favorite framework:**
+
+```typescript
+// server.ts with Hono
+import { Hono } from 'hono'
+
+const app = new Hono()
+app.get("/", (c) => c.text('Hello from Hono!'))
+
+export default app
 ```
 
 **Deployment Presets:**
 
-- `node-server` - Node.js server
+- `standard` - Standard Node.js
 - `cloudflare` - Cloudflare Workers
 - `vercel` - Vercel Serverless
 - `netlify` - Netlify Functions
@@ -93,10 +120,12 @@ export default defineNitroConfig({
 
 **Why we chose it:**
 
-- Powers Nuxt 3 (battle-tested)
-- Deploy anywhere
-- H3 is fast and modern
-- Built-in optimizations
+- Vite-native (seamless integration)
+- Powers Nuxt, SolidStart, TanStack Start
+- Deploy anywhere with zero config
+- File-based routing out of the box
+- Supports multiple backend frameworks
+- Fast development with HMR
 
 ---
 
@@ -735,7 +764,8 @@ Now that you understand the tech stack, proceed to:
 ## Resources
 
 - [Vinxi Docs](https://vinxi.vercel.app/)
-- [Nitro Docs](https://nitro.unjs.io/)
+- [Nitro v3 Docs](https://v3.nitro.build/)
+- [Nitro v3 GitHub](https://github.com/nitrojs/nitro)
 - [Vite Docs](https://vitejs.dev/)
 - [React Docs](https://react.dev/)
 - [unjs Ecosystem](https://unjs.io/)

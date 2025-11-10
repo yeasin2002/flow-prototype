@@ -281,38 +281,45 @@ function createServerFunctionPlugin(): Plugin {
 **packages/core/src/build/nitro.ts:**
 
 ```typescript
-import { defineNitroConfig } from "nitropack/config";
 import type { @flowConfig } from "../types";
 
+/**
+ * Nitro v3 Configuration
+ * Note: Nitro v3 is now a Vite plugin, not a standalone config
+ * Configuration is done through vite.config.ts
+ */
 export function createNitroConfig(config: @flowConfig) {
-  return defineNitroConfig({
-    preset: "node-server",
-
-    srcDir: config.serverDir || "app/server",
-
+  return {
+    preset: config.nitro?.preset || "node-server",
+    
+    // Routes directory for file-based routing
+    routesDir: config.serverDir || "app/server/routes",
+    
+    // Output configuration
     output: {
       dir: config.outDir || ".output",
-      serverDir: ".output/server",
-      publicDir: ".output/public",
     },
-
-    handlers: [
-      {
-        route: "/**",
-        handler: ".output/server/entry.js",
-      },
-    ],
-
+    
+    // Development server options
     devServer: {
-      watch: [config.routesDir || "app/routes", config.serverDir || "app/server"],
+      watch: [
+        config.routesDir || "app/routes",
+        config.serverDir || "app/server"
+      ],
     },
-
-    experimental: {
-      wasm: true,
-    },
-
+    
     ...(config.nitro || {}),
-  });
+  };
+}
+
+/**
+ * Create Nitro Vite plugin configuration
+ */
+export function createNitroPlugin(config: @flowConfig) {
+  return {
+    name: 'nitro',
+    config: createNitroConfig(config)
+  };
 }
 ```
 
@@ -579,11 +586,11 @@ export { build, dev } from "./build";
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "vinxi": "^0.4.0",
-    "nitropack": "^2.9.0",
-    "vite": "^5.2.0",
+    "vinxi": "^0.5.8",
+    "nitro": "^3.0.0-alpha",
+    "vite": "^7.2.0",
     "h3": "^1.11.0",
-    "@vitejs/plugin-react": "^4.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
     "pathe": "^1.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -709,4 +716,5 @@ Continue to **[04-Vinxi-Configuration.md](./04-Vinxi-Configuration.md)** to dive
 
 - [Vinxi Documentation](https://vinxi.vercel.app/)
 - [Vite Plugin API](https://vitejs.dev/guide/api-plugin.html)
-- [Nitro Configuration](https://nitro.unjs.io/config)
+- [Nitro v3 Documentation](https://v3.nitro.build/)
+- [Nitro v3 GitHub](https://github.com/nitrojs/nitro)

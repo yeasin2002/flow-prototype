@@ -88,14 +88,19 @@ A modern, full-stack React framework with:
 │         @flow Framework             │
 ├─────────────────────────────────────────┤
 │                                         │
-│  Vinxi (Build Orchestrator)             │
-│    ├─ Client Build (Vite)               │
-│    └─ Server Build (Vite)               │
+│  Vite (Build Tool)                      │
+│    ├─ Client Build                      │
+│    ├─ Server Build                      │
+│    └─ Nitro Plugin (Server)             │
 │                                         │
-│  Nitro (Universal Server)               │
-│    ├─ SSR Handler                       │
-│    ├─ API Routes                        │
-│    └─ Middleware                        │
+│  Vinxi (Build Orchestrator)             │
+│    ├─ Multi-router coordination         │
+│    └─ Asset management                  │
+│                                         │
+│  Nitro v3 (Vite Plugin)                 │
+│    ├─ File-based API routes             │
+│    ├─ Universal deployment              │
+│    └─ Multiple backend frameworks       │
 │                                         │
 │  React 19                               │
 │    ├─ Server Components                 │
@@ -134,12 +139,12 @@ Browser Receives HTML
 
 ### Core
 
-- **Vinxi** - Build orchestrator
-- **Nitro** - Universal server
-- **Vite** - Fast bundler
+- **Vite** - Fast bundler and dev server
+- **Nitro v3** - Universal server (Vite plugin)
+- **Vinxi** - Build orchestrator for multi-router apps
 - **React 19** - UI library
 - **React Router** - Client routing
-- **H3** - HTTP framework
+- **H3** - HTTP framework (used by Nitro)
 
 ### Optimization
 

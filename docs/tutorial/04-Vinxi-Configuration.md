@@ -526,4 +526,5 @@ Continue to **[05-File-Based-Routing.md](./05-File-Based-Routing.md)** to implem
 
 - [Vinxi Documentation](https://vinxi.vercel.app/)
 - [Vinxi GitHub](https://github.com/nksaraf/vinxi)
+- [Nitro v3 as Vite Plugin](https://v3.nitro.build/)
 - [Vite Multi-Page Apps](https://vitejs.dev/guide/build.html#multi-page-app)

@@ -72,24 +72,25 @@ A deep dive into the architecture of our full-stack React framework (@flow).
 - Excellent plugin ecosystem
 - Used by modern frameworks
 
-### 3. Nitro - The Server
+### 3. Nitro - The Server (Vite Plugin)
 
-**Role**: Universal server runtime
+**Role**: Production-ready server as a Vite plugin
 
 **Responsibilities**:
 
-- Handle HTTP requests
-- Server-side rendering
-- API routes
-- Middleware
-- Universal deployment
+- Extend Vite with server capabilities
+- Handle HTTP requests and API routes
+- Universal deployment (Node, Edge, Serverless)
+- File-based routing in routes/ folder
+- Support multiple backend frameworks (H3, Hono, Elysia)
 
-**Why Nitro?**
+**Why Nitro v3?**
 
-- Powers Nuxt 3
-- Deploy anywhere (Node, Edge, Serverless)
-- Built-in optimizations
-- H3 HTTP framework
+- Now a Vite plugin (seamless integration)
+- Powers Nuxt, SolidStart, and TanStack Start
+- Deploy anywhere with zero config
+- Fast HMR on server routes
+- Minimal overhead and runtime-agnostic
 
 ---
 
@@ -179,17 +180,21 @@ A deep dive into the architecture of our full-stack React framework (@flow).
 }
 ```
 
-**Phase 4: Nitro Build**
+**Phase 4: Nitro Build (Vite Plugin)**
 
 ```typescript
-// Nitro creates universal server
-{
-  preset: 'node-server', // or 'cloudflare', 'vercel', etc.
-  handlers: [
-    { route: '/**', handler: './dist/server/entry.js' }
+// Nitro v3 as Vite plugin
+import { defineConfig } from 'vite'
+import { nitro } from 'nitro/vite'
+
+export default defineConfig({
+  plugins: [
+    nitro()
   ],
-  output: '.output'
-}
+  nitro: {
+    preset: 'node-server', // or 'cloudflare', 'vercel', etc.
+  }
+})
 ```
 
 ---
@@ -601,20 +606,23 @@ my-app/
 
 **Decision:** Use Vinxi for faster development
 
-### 2. Why Nitro Over Express/Fastify?
+### 2. Why Nitro v3 Over Express/Fastify?
 
 **Pros:**
 
-- ✅ Universal deployment (Node, Edge, Serverless)
-- ✅ Built-in optimizations
-- ✅ Powers Nuxt (proven at scale)
-- ✅ H3 is modern and fast
+- ✅ Vite plugin (seamless integration with build system)
+- ✅ Universal deployment (Node, Edge, Serverless) with zero config
+- ✅ Powers Nuxt, SolidStart, TanStack Start (proven at scale)
+- ✅ File-based routing out of the box
+- ✅ Support for multiple backend frameworks (H3, Hono, Elysia)
+- ✅ Fast HMR on server routes
 
 **Cons:**
 
-- ⚠️ Smaller ecosystem than Express
+- ⚠️ v3 is in Alpha (not production-ready yet)
+- ⚠️ Different from v2 (migration needed)
 
-**Decision:** Use Nitro for universal deployment
+**Decision:** Use Nitro v3 for Vite-native server integration and universal deployment
 
 ### 3. File-Based Routing vs Manual Routes?
 
@@ -644,6 +652,7 @@ Now that you understand the architecture, proceed to:
 ## References
 
 - [Vinxi Architecture](https://vinxi.vercel.app/)
-- [Nitro Architecture](https://nitro.unjs.io/guide)
+- [Nitro v3 Documentation](https://v3.nitro.build/)
+- [Nitro v3 GitHub](https://github.com/nitrojs/nitro)
 - [React Server Components](https://react.dev/reference/rsc/server-components)
 - [TanStack Start Source](https://github.com/TanStack/router)
