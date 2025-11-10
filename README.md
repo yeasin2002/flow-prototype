@@ -21,36 +21,41 @@
 
 ## 🚀 Quick Start
 
-Create a new @flow application in seconds:
+### Try the Example App
+
+The fastest way to see @flow in action:
 
 ```bash
-# Create a new project
-npx create-@flow my-app
-
-# Navigate to your project
-cd my-app
+# Navigate to the core package
+cd packages/core
 
 # Install dependencies
 pnpm install
 
-# Start development server
+# Build the core package
+pnpm build
+
+# Run the example app
+cd example
+pnpm install
 pnpm dev
 ```
 
 Your app is now running at `http://localhost:3000` 🎉
 
-### Manual Setup
+### Create Your Own App
 
 ```bash
-# Install @flow
-pnpm add @flow/core @flow/router @flow/server
-
-# Install peer dependencies
-pnpm add react react-dom
+# Install @flow core
+pnpm add @flow/core react react-dom react-router-dom
 
 # Install dev dependencies
-pnpm add -D @flow/cli typescript @types/react @types/react-dom
+pnpm add -D typescript @types/react @types/react-dom vite
+
+# Create your app structure (see example/ for reference)
 ```
+
+**Note:** CLI tool (`create-@flow`) is coming soon!
 
 ## 📖 Core Concepts
 
@@ -251,16 +256,28 @@ docker build -t my-app .
 
 @flow is an exploration of modern full-stack React architecture. It's built to understand how meta-frameworks work under the hood - from build orchestration to server-side rendering to universal deployment.
 
-This project combines the best ideas from Next.js, TanStack Start, and Nuxt while leveraging cutting-edge tools like Vite, Vinxi, and Nitro. The goal is to create a framework that's both powerful and understandable, production-capable yet educational.
+This project combines the best ideas from Next.js, TanStack Start, and Nuxt while leveraging cutting-edge tools like Vite 7, Vinxi, and Nitro v3. The goal is to create a framework that's both powerful and understandable, production-capable yet educational.
 
 **What makes @flow unique:**
 
-- **Vite-powered** - Leverage Vite's speed and ecosystem instead of custom bundlers
-- **Nitro-based** - True universal deployment to any platform
+- **Vite 7-powered** - Leverage Vite's speed and ecosystem instead of custom bundlers
+- **Nitro v3-based** - True universal deployment to any platform (as Vite plugin)
 - **Type-safe RPC** - Server functions with zero boilerplate and full type safety
 - **Transparent** - Clear architecture that you can learn from and extend
+- **Educational** - Comprehensive documentation explaining every design decision
 
 This is a learning project that aims to become production-ready. It's for developers who want to understand how modern frameworks work, who value flexibility and control, and who believe that the best way to learn is by building.
+
+### Current Status
+
+- ✅ Core package built and working
+- ✅ SSR with React 19
+- ✅ File-based routing (frontend)
+- ✅ API routes with Nitro v3
+- ✅ Example app demonstrating features
+- 🚧 Advanced routing features
+- 🚧 Server function RPC system
+- 🚧 CLI tool for project scaffolding
 
 ## 📚 Learn More
 

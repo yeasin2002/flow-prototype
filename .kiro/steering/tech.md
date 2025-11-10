@@ -9,13 +9,15 @@
 
 ## Core Dependencies
 
-- **vite** ^7.x - Fast bundler and dev server
-- **nitro** ^3.x (Alpha) - Universal server (Vite plugin)
-- **vinxi** ^0.5.x - Multi-build orchestrator
-- **react** ^19.x - UI library
-- **react-dom** ^19.x - React DOM renderer
-- **react-router-dom** ^6.x - Client routing
-- **h3** ^1.x - HTTP framework (used by Nitro)
+- **vite** ^7.2.2 - Fast bundler and dev server
+- **nitro** ^3.0.0-alpha.4 - Universal server (Vite plugin)
+- **vinxi** ^0.5.8 - Multi-build orchestrator
+- **react** ^19.0.0 - UI library
+- **react-dom** ^19.0.0 - React DOM renderer
+- **react-router-dom** ^6.30.1 - Client routing
+- **h3** ^1.15.4 - HTTP framework (used by Nitro)
+- **@vitejs/plugin-react** ^5.1.0 - Vite React plugin
+- **pathe** ^1.1.2 - Path utilities
 
 ## Build Tools
 
@@ -42,13 +44,21 @@ pnpm format           # Format code with Prettier
 pnpm check-types      # Type check all packages
 ```
 
-### Package Level
+### Core Package (packages/core)
 ```bash
-pnpm build            # Build package with tsdown
+pnpm install          # Install dependencies
+pnpm build            # Build with tsc + tsc-alias
 pnpm dev              # Watch mode build
 pnpm lint             # Lint package
 pnpm type-check       # Type check without emit
 pnpm clean            # Remove dist folder
+```
+
+### Example App (packages/core/example)
+```bash
+pnpm install          # Install dependencies
+pnpm dev              # Start dev server (tsx dev.ts)
+pnpm build            # Build for production (tsx build.ts)
 ```
 
 ## Package Exports Pattern
