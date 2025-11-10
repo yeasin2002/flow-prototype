@@ -1,11 +1,11 @@
 import { resolve } from "pathe";
-import type { BuildContext, @flowConfig, ResolvedConfig } from "../types";
+import type { BuildContext, FlowConfig, ResolvedConfig } from "../types";
 
 export * from "./nitro";
 export * from "./vinxi";
 export * from "./vite";
 
-export function resolveConfig(config: @flowConfig = {}): ResolvedConfig {
+export function resolveConfig(config: FlowConfig = {}): ResolvedConfig {
   const root = config.root || process.cwd();
 
   return {
@@ -23,8 +23,8 @@ export function resolveConfig(config: @flowConfig = {}): ResolvedConfig {
 }
 
 export function createBuildContext(
-  config: @flowConfig,
-  mode: "development" | "production" = "development",
+  config: FlowConfig,
+  mode: "development" | "production" = "development"
 ): BuildContext {
   return {
     config: resolveConfig(config),
@@ -32,35 +32,59 @@ export function createBuildContext(
   };
 }
 
-export async function build(config: @flowConfig) {
-  const ctx = createBuildContext(config, "production");
+export async function build(config: FlowConfig) {
+  const resolved = resolveConfig(config);
+  const { createVinxiApp } = await import("./vinxi");
 
-  console.log("Building @flow app...");
-  console.log("Config:", ctx.config);
+  console.log("📦 Building @flow app...");
+  console.log(`📁 Root: ${resolved.rootDir}`);
+  console.log(`📂 Output: ${resolved.outDir}`);
 
-  // TODO: Implement actual build process
-  // 1. Generate routes
-  // 2. Build client with Vite
-  // 3. Build server with Vite
-  // 4. Build Nitro server
+  try {
+    const app = createVinxiApp(config);
 
-  return {
-    success: true,
-  };
+    // Vinxi handles the build process
+    await app.build();
+
+    console.log("✅ Build completed successfully!");
+    console.log(`📂 Output directory: ${resolved.outDir}`);
+
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error("❌ Build failed:", error);
+    return {
+      success: false,
+      errors: [error as Error],
+    };
+  }
 }
 
-export async function dev(config: @flowConfig) {
-  const ctx = createBuildContext(config, "development");
+export async function dev(config: FlowConfig) {
+  const resolved = resolveConfig(config);
+  const { createVinxiApp } = await import("./vinxi");
 
-  console.log("Starting @flow dev server...");
-  console.log("Config:", ctx.config);
+  console.log("🚀 Starting @flow dev server...");
+  console.log(`📁 Root: ${resolved.rootDir}`);
+  console.log(`🌐 Port: ${resolved.port}`);
 
-  // TODO: Implement dev server
-  // 1. Start Vinxi dev server
-  // 2. Watch for file changes
-  // 3. Hot reload
+  try {
+    const app = createVinxiApp(config);
 
-  return {
-    success: true,
-  };
+    // Start Vinxi dev server
+    await app.dev();
+
+    console.log(`✅ Server running at http://localhost:${resolved.port}`);
+
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error("❌ Failed to start dev server:", error);
+    return {
+      success: false,
+      errors: [error as Error],
+    };
+  }
 }

@@ -1,8 +1,11 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig, type Plugin, type UserConfig } from "vite";
-import type { @flowConfig } from "../src/types";
+import type { FlowConfig } from "../types";
 
-export function createViteConfig(config: @flowConfig, target: "client" | "server"): UserConfig {
+export function createViteConfig(
+  config: FlowConfig,
+  target: "client" | "server"
+): UserConfig {
   const isClient = target === "client";
 
   return defineConfig({
@@ -10,7 +13,7 @@ export function createViteConfig(config: @flowConfig, target: "client" | "server
       react({
         jsxRuntime: "automatic",
       }),
-      ...create@flowPlugins(config, target),
+      ...flowPlugins(config, target),
     ],
 
     resolve: {
@@ -36,7 +39,10 @@ export function createViteConfig(config: @flowConfig, target: "client" | "server
   });
 }
 
-function create@flowPlugins(config: @flowConfig, target: "client" | "server"): Plugin[] {
+function flowPlugins(
+  config: FlowConfig,
+  target: "client" | "server"
+): Plugin[] {
   const plugins: Plugin[] = [];
 
   // Add route generation plugin
@@ -50,7 +56,7 @@ function create@flowPlugins(config: @flowConfig, target: "client" | "server"): P
   return plugins;
 }
 
-function createRoutePlugin(config: @flowConfig): Plugin {
+function createRoutePlugin(config: FlowConfig): Plugin {
   return {
     name: "@flow:routes",
     configResolved() {
@@ -63,7 +69,7 @@ function createRoutePlugin(config: @flowConfig): Plugin {
 function createServerFunctionPlugin(): Plugin {
   return {
     name: "@flow:server-functions",
-    transform(code, id) {
+    transform(code, _id) {
       // TODO: Transform server function calls to RPC
       return code;
     },

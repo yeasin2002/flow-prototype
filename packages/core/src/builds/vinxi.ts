@@ -1,8 +1,8 @@
 import { createApp } from "vinxi";
-import type { @flowConfig } from "../src/types";
+import type { FlowConfig } from "../types";
 import { createViteConfig } from "./vite";
 
-export function createVinxiApp(config: @flowConfig) {
+export function createVinxiApp(config: FlowConfig) {
   return createApp({
     routers: [
       // Client router - Browser bundle
@@ -36,6 +36,6 @@ export function createVinxiApp(config: @flowConfig) {
   });
 }
 
-export function defineConfig(config: @flowConfig) {
+export function defineConfig(config: FlowConfig) {
   return config;
 }

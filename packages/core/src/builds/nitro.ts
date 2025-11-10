@@ -1,33 +1,21 @@
-import { defineNitroConfig } from "nitropack/config";
-import type { @flowConfig } from "../src/types";
+import type { FlowConfig } from "../types";
 
-export function createNitroConfig(config: @flowConfig) {
-  return defineNitroConfig({
-    preset: "node-server",
+/**
+ * Nitro v3 Configuration
+ * Note: Nitro v3 is now a Vite plugin
+ */
+export function createNitroConfig(config: FlowConfig) {
+  return {
+    preset: config.nitro?.preset || "node-server",
 
-    srcDir: config.serverDir || "app/server",
+    // Routes directory for file-based routing
+    routesDir: config.serverDir || "app/server/routes",
 
+    // Output configuration
     output: {
       dir: config.outDir || ".output",
-      serverDir: ".output/server",
-      publicDir: ".output/public",
-    },
-
-    handlers: [
-      {
-        route: "/**",
-        handler: ".output/server/entry.js",
-      },
-    ],
-
-    devServer: {
-      watch: [config.routesDir || "app/routes", config.serverDir || "app/server"],
-    },
-
-    experimental: {
-      wasm: true,
     },
 
     ...(config.nitro || {}),
-  });
+  };
 }

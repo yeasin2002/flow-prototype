@@ -1,0 +1,22 @@
+{
+  "name": "@flow-example",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx dev.ts",
+    "build": "tsx build.ts"
+  },
+  "dependencies": {
+    "@flow/core": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.22.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.4.0"
+  }
+}
