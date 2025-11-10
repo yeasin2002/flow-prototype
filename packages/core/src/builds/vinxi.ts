@@ -1,6 +1,6 @@
+import react from "@vitejs/plugin-react";
 import { createApp } from "vinxi";
 import type { FlowConfig } from "../types";
-import { createViteConfig } from "./vite";
 
 export function createVinxiApp(config: FlowConfig) {
   return createApp({
@@ -12,7 +12,11 @@ export function createVinxiApp(config: FlowConfig) {
         handler: "./app/entry-client.tsx",
         target: "browser",
         base: "/_build",
-        plugins: () => createViteConfig(config, "client"),
+        plugins: () => [
+          react({
+            jsxRuntime: "automatic",
+          }),
+        ],
       },
 
       // SSR router - Server-side rendering
@@ -21,7 +25,11 @@ export function createVinxiApp(config: FlowConfig) {
         type: "http",
         handler: "./app/entry-server.tsx",
         target: "server",
-        plugins: () => createViteConfig(config, "server"),
+        plugins: () => [
+          react({
+            jsxRuntime: "automatic",
+          }),
+        ],
       },
 
       // API router - Backend routes

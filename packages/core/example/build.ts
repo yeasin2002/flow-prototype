@@ -1,4 +1,4 @@
-import { build } from '../src';
-import config from './flow.config';
+import { build } from "../dist/index.js";
+import config from "./flow.config.js";
 
 build(config);
